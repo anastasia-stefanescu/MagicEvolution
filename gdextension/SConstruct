@@ -1,0 +1,19 @@
+import os
+
+env = SConscript("godot-cpp/SConstruct")
+
+env.Append(CPPPATH="src/")
+
+#env.Append(LIB="...")
+#env.Append(LIBPATH="...")
+
+src = []
+for root, dirs, files in os.walk('src/'):
+    for file in files:
+        if file[-4:] == '.cpp':
+            src.append(os.path.join(root, file))
+
+
+libpath="../lib_magic_evolution_cpp{}{}".format(env['suffix'], env['SHLIBSUFFIX'])
+sharedLib = env.SharedLibrary(libpath, src)
+Default(sharedLib)
