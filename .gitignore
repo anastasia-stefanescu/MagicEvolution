@@ -5,6 +5,9 @@
 /gdextension/src/**/*.obj
 /gdextension/src/**/*.o
 
+# Also Scons build database
+/gdextension/.sconsign.dblite
+
 # The magic_evolution_cpp library
 /lib_magic_evolution_cpp*
 
