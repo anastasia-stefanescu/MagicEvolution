@@ -4,6 +4,7 @@
 # Scons seems to like building object files next to the source files, so ignore those
 /gdextension/src/**/*.obj
 /gdextension/src/**/*.o
+/gdextension/src/**/*.os
 
 # Also Scons build database
 /gdextension/.sconsign.dblite
