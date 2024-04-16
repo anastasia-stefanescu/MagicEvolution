@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://chng1o38m6b33"]
+[gd_scene load_steps=6 format=3 uid="uid://chng1o38m6b33"]
 
-[ext_resource type="Script" path="res://WorldGenerator.cs" id="1_0jh7g"]
+[ext_resource type="Script" path="res://WorldGeneration/WorldGenerator.cs" id="1_0jh7g"]
 [ext_resource type="Texture2D" uid="uid://bwkp0u54womdv" path="res://tileset.png" id="1_m5tjd"]
+[ext_resource type="Script" path="res://WorldGeneration/Camera2D.cs" id="3_gae7u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qu0fo"]
 texture = ExtResource("1_m5tjd")
@@ -23,3 +24,11 @@ script = ExtResource("1_0jh7g")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_j0vly")
 format = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1024, 1024)
+limit_left = 0
+limit_top = 0
+limit_right = 4096
+limit_bottom = 4096
+script = ExtResource("3_gae7u")

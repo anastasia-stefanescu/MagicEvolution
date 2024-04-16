@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public partial class WorldGenerator : Node2D
 {
-	static int height = 256;
-	static int width = 256;
+	static int height = 512;
+	static int width = 512;
 	private double[,] tempNoiseMap = new double[height, width];
 	private double[,] altNoiseMap = new double[height, width];
 	private int[,]  biomeMap = new int[height, width];
@@ -79,7 +79,6 @@ public partial class WorldGenerator : Node2D
 		altNoiseMap = noiseMapGen(height, width, 0.1f, 5);
 		biomeListGen();
 		makeMap(height, width);
-		GD.Print(height);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
