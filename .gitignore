@@ -6,11 +6,15 @@
 /gdextension/src/**/*.o
 /gdextension/src/**/*.os
 
+# Ignore the c# project files
+/*.csproj
+/*.sln
+
 # Also Scons build database
 /gdextension/.sconsign.dblite
 
 # The magic_evolution_cpp library
-/lib_magic_evolution_cpp*
+/*lib_magic_evolution_cpp*
 
 # The file that tells godot how to link the library (this should be set up by everyone separately)
 /linker_file.gdextension
