@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3dt47d1xoomx"]
+
+[ext_resource type="Script" path="res://World.gd" id="1_qtj0n"]
+[ext_resource type="Texture2D" uid="uid://ciphfp7drinyn" path="res://background_tile.png" id="1_ynwcn"]
+[ext_resource type="PackedScene" uid="uid://djx5nq47saevo" path="res://wiz_bit.tscn" id="2_00g1v"]
+[ext_resource type="PackedScene" uid="uid://hnweqnyqwsmh" path="res://mana.tscn" id="3_hig23"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_qtj0n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13922.0
+offset_top = -6377.0
+offset_right = 11384.0
+offset_bottom = 8046.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ynwcn")
+stretch_mode = 1
+
+[node name="WizBit" parent="." instance=ExtResource("2_00g1v")]
+position = Vector2(639, 408)
+
+[node name="Camera2D" type="Camera2D" parent="WizBit"]
+zoom = Vector2(2, 2)
+
+[node name="Mana" parent="." instance=ExtResource("3_hig23")]
+position = Vector2(641, 326)
