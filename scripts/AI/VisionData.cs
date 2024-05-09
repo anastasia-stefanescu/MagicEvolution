@@ -1,21 +1,25 @@
-using Godot;
 using System;
+using System.Collections.Generic;
 
 public struct VisionData {
     public uint rayCount;
-    private VisionRayData[] raysData;
+    public VisionRayData[] raysData;
 
     public VisionData(uint n) {
-        rayCount=Math.Max(0, 2*n-1);
+        if(n==0)
+            rayCount=0;
+        else
+            rayCount=2*n+1;
         raysData = new VisionRayData[rayCount];
     }
 
-    public VisionRayData[] getRaysData() {
+    public VisionRayData[] cloneRaysData() {
         return (VisionRayData[])raysData.Clone();
     }
 
-    public void setRaysData(VisionRayData[] raysData) {
-        this.raysData=(VisionRayData[])raysData.Clone();
-        rayCount=(uint)this.raysData.Length;
+    public VisionData clone() {
+        VisionData clone = new VisionData((rayCount+1)/2);
+        clone.raysData = (VisionRayData[])raysData.Clone();
+        return clone;
     }
 }
