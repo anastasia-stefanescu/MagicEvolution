@@ -48,17 +48,14 @@ public partial class Vision : Godot.Node2D {
 		float angle=0;
 		for(uint i=1;i<rayCount;i+=2) {
 			angle+=(float)fov/((float)(rayCount-1)/2);
-			GD.Print(angle);
 			
 			rayNodes[i]=new RayCast2D();
 			rayNodes[i].TargetPosition=new Vector2(-Mathf.Cos(Mathf.DegToRad(90-angle)), -Mathf.Sin(Mathf.DegToRad(90-angle))) * (float)range;
 			AddChild(rayNodes[i]);
-			GD.Print(rayNodes[i].TargetPosition);
 			
 			rayNodes[i+1]=new RayCast2D();
 			rayNodes[i+1].TargetPosition=new Vector2(Mathf.Cos(Mathf.DegToRad(90-angle)), -Mathf.Sin(Mathf.DegToRad(90-angle))) * (float)range;
 			AddChild(rayNodes[i+1]);
-			GD.Print(rayNodes[i+1].TargetPosition);
 		}
 	}
 }
