@@ -1,4 +1,3 @@
-write VisionGenome.mutate()
 write Vision.getVisionData() and put into diagram
 test Vision constructor
 put Vision in diagram

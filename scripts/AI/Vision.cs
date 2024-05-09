@@ -17,10 +17,10 @@ public partial class Vision : Godot.Node2D {
 	// this is only public because AI implementations need to see it
 	public void updateGenome(VisionGenome newGenome) {
 		genome=newGenome;
+		generate();
 	}
 
-	public Vision(VisionGenome genome) {
-		this.genome=genome;
+	private void generate() {
 		fov=genome.getFOV()*180;
 		if(genome.getRayCountCode()==0)
 			rayCount=0;
@@ -28,11 +28,17 @@ public partial class Vision : Godot.Node2D {
 			rayCount=2*genome.getRayCountCode()-1;
 		range=genome.getRange();
 		rayNodes=null;
+		
 		// Instantiate raycast nodes
 		initRaycastNodes();
 	}
 
-	public void initRaycastNodes() {
+	public Vision(VisionGenome genome) {
+		this.genome=genome;
+		generate();
+	}
+
+	private void initRaycastNodes() {
 		if(rayCount==0||rayNodes!=null)
 			return;
 		rayNodes=new RayCast2D[rayCount];
@@ -42,14 +48,17 @@ public partial class Vision : Godot.Node2D {
 		float angle=0;
 		for(uint i=1;i<rayCount;i+=2) {
 			angle+=(float)fov/((float)(rayCount-1)/2);
+			GD.Print(angle);
 			
 			rayNodes[i]=new RayCast2D();
-			rayNodes[i].TargetPosition=new Vector2(-Godot.Mathf.Cos(90-angle), -Godot.Mathf.Sin(90-angle));
+			rayNodes[i].TargetPosition=new Vector2(-Mathf.Cos(Mathf.DegToRad(90-angle)), -Mathf.Sin(Mathf.DegToRad(90-angle))) * (float)range;
 			AddChild(rayNodes[i]);
+			GD.Print(rayNodes[i].TargetPosition);
 			
 			rayNodes[i+1]=new RayCast2D();
-			rayNodes[i+1].TargetPosition=new Vector2(Godot.Mathf.Cos(90-angle), -Godot.Mathf.Sin(90-angle));
+			rayNodes[i+1].TargetPosition=new Vector2(Mathf.Cos(Mathf.DegToRad(90-angle)), -Mathf.Sin(Mathf.DegToRad(90-angle))) * (float)range;
 			AddChild(rayNodes[i+1]);
+			GD.Print(rayNodes[i+1].TargetPosition);
 		}
 	}
 }
