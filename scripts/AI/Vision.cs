@@ -29,7 +29,7 @@ public partial class Vision : Godot.Node2D {
 		range=genome.getRange();
 		rayNodes=null;
 		// Instantiate raycast nodes
-		
+		initRaycastNodes();
 	}
 
 	public void initRaycastNodes() {
