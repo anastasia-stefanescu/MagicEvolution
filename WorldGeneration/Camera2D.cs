@@ -14,6 +14,9 @@ public partial class Camera2D : Godot.Camera2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		newPosition = this.Position;
+		newZoom = this.Zoom;
+		
 		if(Input.IsActionPressed("move_right") && this.Position.X < 4096 - 400 / this.Zoom.X)
 			newPosition.X = (this.Position.X + 16);
 		if(Input.IsActionPressed("move_left") && this.Position.X > 400 / this.Zoom.X)
@@ -36,6 +39,5 @@ public partial class Camera2D : Godot.Camera2D
 	
 		this.Position = newPosition;
 		this.Zoom = newZoom;
-		GD.Print(this.Zoom);
 	}
 }
