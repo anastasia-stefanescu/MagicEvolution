@@ -11,6 +11,12 @@ public class VisionGenome : IGenome {
         return new VisionGenome(fov, rayCountCode, range);
     }
 
+    public uint calcRayCount() {
+        if(rayCountCode==0)
+            return 0;
+        return 2*rayCountCode-1;
+    }
+
     public void mutate() {
         // set up rng
         RandomNumberGenerator rng = new RandomNumberGenerator();

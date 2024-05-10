@@ -5,11 +5,8 @@ public struct VisionData {
     public uint rayCount;
     public VisionRayData[] raysData;
 
-    public VisionData(uint n) {
-        if(n==0)
-            rayCount=0;
-        else
-            rayCount=2*n+1;
+    public VisionData(uint rayCount) {
+        this.rayCount=rayCount;
         raysData = new VisionRayData[rayCount];
     }
 

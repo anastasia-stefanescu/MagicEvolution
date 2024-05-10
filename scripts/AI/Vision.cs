@@ -11,7 +11,7 @@ public partial class Vision : Godot.Node2D {
 
 	public VisionData getVisionData() {
 		GD.Print("Warning! Vision.getVisionData not yet implemented!");
-		return new VisionData();
+		return new VisionData(genome.calcRayCount());
 	}
 
 	// this is only public because AI implementations need to see it
@@ -22,10 +22,7 @@ public partial class Vision : Godot.Node2D {
 
 	private void generate() {
 		fov=genome.getFOV()*180;
-		if(genome.getRayCountCode()==0)
-			rayCount=0;
-		else
-			rayCount=2*genome.getRayCountCode()-1;
+		rayCount=genome.calcRayCount();
 		range=genome.getRange();
 		rayNodes=null;
 		
