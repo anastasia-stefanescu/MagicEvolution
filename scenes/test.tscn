@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://di40y0pkf4ugv"]
 
-[ext_resource type="Script" path="res://scripts/AI/NeuralNetwork.cs" id="1_arqw3"]
+[ext_resource type="Script" path="res://scripts/AI/NeuralNetwork/NeuralNetwork.cs" id="1_arqw3"]
 
 [node name="Test" type="Node2D"]
 position = Vector2(557, 351)
