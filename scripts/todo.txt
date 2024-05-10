@@ -1,7 +1,4 @@
-write Vision.getVisionData() and put into diagram
-test Vision constructor
-put Vision in diagram
+write Vision.getVisionData()
 
 finish NeuralNetwork
-
-** currently figuring out the instantiation of Vision node from NeuralNetwork script
+-> write NeuralNetworkGenome
