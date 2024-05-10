@@ -1,0 +1,4 @@
+write Vision.getVisionData()
+
+finish NeuralNetwork
+-> write NeuralNetworkGenome
