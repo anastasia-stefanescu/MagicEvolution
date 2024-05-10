@@ -37,6 +37,7 @@ public class VisionGenome : IGenome {
         rng.Randomize();
         float param = (float)SimulationParameters.AIParameters.MutationParameters.visionFOVMaxChange;
         fov=fov*(1+rng.RandfRange(-param, param));
+        fov=Mathf.Clamp(fov, 0, 1);
     }
 
     private void mutateRayCountCode() {
