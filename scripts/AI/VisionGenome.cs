@@ -11,6 +11,12 @@ public class VisionGenome : IGenome {
         return new VisionGenome(fov, rayCountCode, range);
     }
 
+    public uint calcRayCount() {
+        if(rayCountCode==0)
+            return 0;
+        return 2*rayCountCode-1;
+    }
+
     public void mutate() {
         // set up rng
         RandomNumberGenerator rng = new RandomNumberGenerator();
@@ -37,6 +43,7 @@ public class VisionGenome : IGenome {
         rng.Randomize();
         float param = (float)SimulationParameters.AIParameters.MutationParameters.visionFOVMaxChange;
         fov=fov*(1+rng.RandfRange(-param, param));
+        fov=Mathf.Clamp(fov, 0, 1);
     }
 
     private void mutateRayCountCode() {
