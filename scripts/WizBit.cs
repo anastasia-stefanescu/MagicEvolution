@@ -1,9 +1,9 @@
 using Godot;
 using System;
 
-public class WizBit : Godot.CharacterBody2D {
+public partial class WizBit : Godot.CharacterBody2D {
 	WizBitStats date_wizbit = new WizBitStats();
-	AI ai = new NeuralNetworks();
+	AI ai = new NeuralNetwork();
 
 	public double rotation = 0;
 	private double rotation_speed = 2

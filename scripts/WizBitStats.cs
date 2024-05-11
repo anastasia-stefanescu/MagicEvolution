@@ -2,7 +2,7 @@
 using Godot;
 using System;
 
-public class WizBitStats {
+public class WizBitStats : IEvolvable {
 
 	public double hpPercent;
 	public double manaPercent;
