@@ -101,7 +101,17 @@ public class NeuralNetworkGenome : IGenome {
         this.synapses = (Synapse[])synapses.Clone();
     }
 
+    public Synapse[] getSynapsesCopy() { return (Synapse[])synapses.Clone(); }
+
+    public NN_ActivationFunctionEnum[] getHiddenActivationFunctionsCopy() { return (NN_ActivationFunctionEnum[])hiddenActivationFunctions.Clone(); } 
+
     public uint getInputNeuronCount() { return visionGenome.calcRayCount() * VisionRayData.fieldCount + AI_Input.nonVisionDataFieldCount; }
+
+    public uint getHiddenNeuronCount() { return hiddenNeuronCount; }
+
+    public uint getVisionNeuronCount() { return visionGenome.calcRayCount(); }
+
+    public VisionGenome getVisionGenomeCopy() { return (VisionGenome)visionGenome.clone(); }
 
     private void mutate_createSynapse() {
         uint inputNeuronCount=getInputNeuronCount();

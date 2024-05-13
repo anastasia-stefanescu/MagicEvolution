@@ -2,21 +2,21 @@ using System;
 using Godot;
 
 public struct Neuron {
-    private double oldStimulation;
+    private double newStimulation;
     private double stimulation;
     private NN_ActivationFunctionEnum activationFunction;
 
     public Neuron(NN_ActivationFunctionEnum activationFunction) {
         this.activationFunction=activationFunction;
-        stimulation=oldStimulation=0;
+        stimulation=newStimulation=0;
     }
 
     public void step() {
-        oldStimulation=stimulation;
-        stimulation=0;
+        stimulation=newStimulation;
+        newStimulation=0;
     }
 
-    public void stimulate(double input) { stimulation+=input; }
+    public void stimulate(double input) { newStimulation+=input; }
 
     public double getOutput() {
         switch (activationFunction) {
@@ -37,7 +37,7 @@ public struct Neuron {
 
     public double getStimulation() { return stimulation; }
 
-    public double getOldStimulation() { return oldStimulation; }
+    public double getNewStimulation() { return newStimulation; }
 
     public static double activationFunction_Identity(double stimulation) { return stimulation; }
     public static double activationFunction_UnitClamp(double stimulation) { return Mathf.Clamp(stimulation, -1, 1); }

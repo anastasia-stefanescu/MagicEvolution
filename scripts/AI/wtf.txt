@@ -1,0 +1,1 @@
+1. System.Collections.Generic.List<T> has an append method when used in NeuralNetworkGenome.mutate_removeNeuron, but not when used in NeuralNetwork.generate. WTF??
