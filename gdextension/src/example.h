@@ -10,10 +10,9 @@ class Example : public Node2D {
 
 protected:
     static void _bind_methods();
-    Example* exampleChild=nullptr;
+
 public:
     void exampleBoundMethod();
-    void secondBoundMethod();
 };
 
 #endif

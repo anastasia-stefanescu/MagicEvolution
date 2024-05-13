@@ -1,5 +1,0 @@
-==== VisionGenome ====
-# mutation rolls are independent
-fov mutation: increases or decreases current fov by at most a fraction p of the current fov (p found in SimulationParameters.AIParameters.MutationParameters.visionFOVMaxChange)
-rayCountCode mutation: increases or decreases by 1
-range: increases or decreases current range by at most a fraction p of the current range (p found in SimulationParameters.AIParameters.MutationParameters.visionRangeMaxChange)
