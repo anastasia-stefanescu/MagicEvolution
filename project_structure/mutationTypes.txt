@@ -3,3 +3,13 @@
 fov mutation: increases or decreases current fov by at most a fraction p of the current fov (p found in SimulationParameters.AIParameters.MutationParameters.visionFOVMaxChange)
 rayCountCode mutation: increases or decreases by 1
 range: increases or decreases current range by at most a fraction p of the current range (p found in SimulationParameters.AIParameters.MutationParameters.visionRangeMaxChange)
+
+
+==== NeuralNetworkGenome ====
+# mutation rolls are independent and applied in the following order
+create synapse: picks a random pair of unconnected neurons (if one exists) and creates a synapse between them of a random weight between -a and a (a=SimulationParameters.AIParameters.MutationParameters.synapseMaxAbsoluteWeight)
+modify synapse: picks a random synapse and changes its weight by at most a fraction pof the current weight (p=SimulationParameters.AIParameters.MutationParameters.synapseModificationMaxChange)
+evolve synapse: picks a random synapse and turns it into 2 new ones, with a new neuron in between. the synapse connected to the original source will have a weight equal to the original one's, while the other new synapse will have a weight of 1. the new neuron will have the identity activation function
+remove synapse: picks a random synapse and removes it
+modify (hidden) neuron: picks a random hidden neuron, if one exists, and changes its activation function to another one at random
+remove (hidden) neuron:

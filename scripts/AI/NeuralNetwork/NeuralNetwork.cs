@@ -1,7 +1,9 @@
 using System;
 using Godot;
 
-public partial class NeuralNetwork : AI/*, IEvolvable*/ {
+public partial class NeuralNetwork : ManaConsumer/*, IEvolvable*/ {
+
+	protected Vision visionNode=null;
 
 	public override void _EnterTree() {
 		base._EnterTree();
@@ -9,9 +11,15 @@ public partial class NeuralNetwork : AI/*, IEvolvable*/ {
 		AddChild(visionNode);
 	}
 
-	public override AI_Output run(AI_Input input) {
+	public AI_Output run(AI_Input input) {
 		throw new NotImplementedException();
 	}
+
+	public VisionData getVisionData() {
+        if(visionNode == null)
+            throw new AppException("Error in AI: visionNode is null. Make sure the vision node was constructed before call (preferably in child class' constructor and/or in its _enter_tree function).");
+        return visionNode.getVisionData();
+    }
 
 	public override void calculateCosts() {
 		GD.Print("Warning! NeuralNetwork.calculateCosts() is still not implemented properly!");

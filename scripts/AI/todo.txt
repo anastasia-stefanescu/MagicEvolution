@@ -1,4 +1,6 @@
 write Vision.getVisionData()
 
 finish NeuralNetwork
--> write NeuralNetworkGenome
+
+
+make VisionData's members private
