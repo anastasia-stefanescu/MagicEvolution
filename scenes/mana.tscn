@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkxjsnkkk8l27"]
+
+[ext_resource type="Texture2D" uid="uid://2eddt51n7kp6" path="res://frames/mana_sprite.png" id="1_5og0u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brcwe"]
+radius = 18.0
+height = 54.0
+
+[node name="Mana" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5og0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_brcwe")
