@@ -101,19 +101,16 @@ public partial class wizbit : CharacterBody2D
 		if (frame_cnt % 20 == 0)
 		{
 			ai_rotation = GD.Randf() * 2 - 1;
-			GD.Print("R: " + ai_rotation);
 		}
 
 		if (frame_cnt % 60 == 0)
 		{
 			ai_x = GD.Randf() * 2 - 1;
-			GD.Print("X: " + ai_x);
 		}
 
 		if (frame_cnt % 120 == 0)
 		{
 			ai_y = GD.Randf() * 2 - 1;
-			GD.Print("Y: " + ai_y);
 		}
 		
 		float rotation = (float)ai_rotation * (float)rotation_speed * (float)delta;
