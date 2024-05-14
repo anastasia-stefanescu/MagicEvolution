@@ -3,6 +3,11 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 public static class SimulationParameters {
+	
+	public static double rangeOnWhichGenerated = 5000;
+	public static double initialNoWizbits = 1000;
+	public static double initialNoMana = 1000;
+	public static double manaValue = 5;
 
 	public static class AIParameters {
 
@@ -17,6 +22,9 @@ public static class SimulationParameters {
 			public static double removeSynapse=0.05;
 			public static double modifyNeuron=0.1;
 			public static double removeNeuron=0.05;
+			
+			
+			
 		}
 
 		public static class MutationParameters {

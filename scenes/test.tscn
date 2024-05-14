@@ -25,3 +25,6 @@ position = Vector2(-69, -49)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-264, -53)
+
+[connection signal="body_entered" from="Mana" to="." method="_on_mana_body_entered"]
+[connection signal="body_entered" from="Mana" to="Wizbit" method="_on_mana_body_entered"]

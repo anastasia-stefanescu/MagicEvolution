@@ -3,6 +3,7 @@ using System;
 
 public partial class wizbit : CharacterBody2D
 {
+	 
 	public WizbitStats date_wizbit;
 	public NeuralNetwork neuralNetwork;
 
@@ -17,6 +18,8 @@ public partial class wizbit : CharacterBody2D
 	private double ai_rotation = 0;
 	private int frame_cnt = 0;
 
+	//
+	
 	
 	public wizbit()
 	{
@@ -120,4 +123,12 @@ public partial class wizbit : CharacterBody2D
 		
 		MoveAndSlide();
 	}
+	
+	//private void _on_mana_body_entered(Node2D body)
+	//{
+		//
+	//}
 }
+
+
+

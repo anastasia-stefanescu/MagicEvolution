@@ -5,9 +5,10 @@ using System.Collections.Generic;
 public partial class test : Node2D
 {
 	
-	 public PackedScene ManaScene;
+	public PackedScene ManaScene;
 	public List<Mana> allMana = new List<Mana>();
 	
+	private int maxSize = (int)SimulationParameters.rangeOnWhichGenerated;
 	
 	 public PackedScene WizbitScene;
 	public List<wizbit> allWizbits = new List<wizbit>();
@@ -20,15 +21,15 @@ public partial class test : Node2D
 		var rng = new RandomNumberGenerator();
 		rng.Randomize(); 
 		
-		for (int i = 0; i < 200; i++)
+		for (int i = 0; i < SimulationParameters.initialNoWizbits; i++)
 		{
 			Mana instance = ManaScene.Instantiate<Mana>();
-			instance.Position = GetRandomPosition(1000, rng);
+			instance.Position = GetRandomPosition(maxSize, rng);
 			AddChild(instance);
-			allMana.Add(instance);
+			//allMana.Add(instance);
 			
 			wizbit instance2 = WizbitScene.Instantiate<wizbit>();
-			instance2.Position = GetRandomPosition(1000, rng);
+			instance2.Position = GetRandomPosition(maxSize, rng);
 			AddChild(instance2);
 			allWizbits.Add(instance2);
 		}
@@ -36,8 +37,8 @@ public partial class test : Node2D
 	
 	public void _Process(float delta)
 	{
-		ReplenishMana(200);
-		ReplenishWizbits(200);
+		//ReplenishMana(200);
+		//ReplenishWizbits(200);
 	}
 	
 	public Vector2 GetRandomPosition(int maxSize, RandomNumberGenerator rng)
@@ -56,7 +57,7 @@ public partial class test : Node2D
 		while (allMana.Count < threshold)
 		{
 			Mana instance = ManaScene.Instantiate<Mana>();
-			instance.Position = GetRandomPosition(1000, rng);
+			instance.Position = GetRandomPosition(maxSize, rng);
 			AddChild(instance);
 			allMana.Add(instance);
 			
@@ -77,7 +78,7 @@ public partial class test : Node2D
 		while (allWizbits.Count < threshold)
 		{
 			var instance = WizbitScene.Instantiate<wizbit>();
-			instance.Position = GetRandomPosition(1000, rng);
+			instance.Position = GetRandomPosition(maxSize, rng);
 			AddChild(instance);
 			allWizbits.Add(instance);
 		}
@@ -87,4 +88,13 @@ public partial class test : Node2D
 	{
 		return allWizbits;
 	}
+	
+	//private void _on_mana_body_entered(Node2D body)
+//{
+		//GD.Print("Body has entered");
+		//QueueFree();
+//}
 }
+
+
+
