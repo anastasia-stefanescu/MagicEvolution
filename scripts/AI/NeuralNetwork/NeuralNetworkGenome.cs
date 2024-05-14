@@ -85,10 +85,17 @@ public class NeuralNetworkGenome : IGenome {
 			this.hiddenActivationFunctions = (NN_ActivationFunctionEnum[])hiddenActivationFunctions.Clone();
 			hiddenNeuronCount=(uint)hiddenActivationFunctions.Length;
 		}
-		else
+		else {
+			this.hiddenActivationFunctions = new NN_ActivationFunctionEnum[0];
 			hiddenNeuronCount=0;
+		}
+			
 		
 		// check synapses validity
+		if(synapses==null) {
+			this.synapses=new Synapse[0];
+			return;
+		}
 		uint totalNeuronCount = getInputNeuronCount()+hiddenNeuronCount+AI_Output.fieldCount;
  		for(uint i=0; i<synapses.Length; i++)
 			if(synapses[i].sourceIndex>=totalNeuronCount || synapses[i].destinationIndex>=totalNeuronCount) // invalid indices
@@ -145,6 +152,9 @@ public class NeuralNetworkGenome : IGenome {
 	}
 
 	private void mutate_modifySynapse() {
+		if(synapses.Length==0)
+			return;
+
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
 
@@ -154,6 +164,9 @@ public class NeuralNetworkGenome : IGenome {
 	}
 
 	private void mutate_evolveSynapse() {
+		if(synapses.Length==0)
+			return;
+
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
 
@@ -166,6 +179,9 @@ public class NeuralNetworkGenome : IGenome {
 	}
 
 	private void mutate_removeSynapse() {
+		if(synapses.Length==0)
+			return;
+
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
 
@@ -180,6 +196,9 @@ public class NeuralNetworkGenome : IGenome {
 	}
 
 	private void mutate_modifyNeuron() {
+		if(hiddenActivationFunctions.Length==0)
+			return;
+
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
 
@@ -190,6 +209,9 @@ public class NeuralNetworkGenome : IGenome {
 	}
 
 	private void mutate_removeNeuron() {
+		if(hiddenActivationFunctions.Length==0)
+			return;
+		
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
 
