@@ -1,4 +1,21 @@
-[gd_scene format=3 uid="uid://di40y0pkf4ugv"]
+[gd_scene load_steps=3 format=3 uid="uid://di40y0pkf4ugv"]
+
+[ext_resource type="PackedScene" uid="uid://dy2ilo08cp6l5" path="res://scenes/wizbit.tscn" id="1_4lis3"]
+[ext_resource type="Texture2D" uid="uid://chxscqjimneuv" path="res://frames/background_tile.png" id="2_cnwad"]
 
 [node name="Test" type="Node2D"]
-position = Vector2(557, 351)
+position = Vector2(323, 124)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -13552.0
+offset_top = -7702.0
+offset_right = 13034.0
+offset_bottom = 7441.0
+texture = ExtResource("2_cnwad")
+stretch_mode = 1
+
+[node name="Wizbit" parent="." instance=ExtResource("1_4lis3")]
+position = Vector2(-265, -55)
+
+[node name="Camera2D" type="Camera2D" parent="Wizbit"]
+position = Vector2(1, 2)
