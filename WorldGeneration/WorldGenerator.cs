@@ -11,54 +11,6 @@ public partial class WorldGenerator : Node2D
 	private double[,] vegNoiseMap = new double[height, width];
 	private int[,]  biomeMap = new int[height, width];
 	
-	//class that defines the values for a tile to be in a specific biome
-	//atributes: id, temperature range, altitude range, vegetation range, sprite (position in tileset.png)
-	//sprites are 8x8 pixels
-	private class Biome 
-	{ 
-		public int key;
-		public double mintemp, maxtemp, minalt, maxalt, minveg, maxveg;
-		public Vector2I tile;
-		public Biome(int key, double mintemp, double maxtemp, double minalt, double maxalt, double minveg, double maxveg, Vector2I tile)
-		{
-			this.key = key;
-			this.mintemp = mintemp;
-			this.maxtemp = maxtemp;
-			this.minalt = minalt;
-			this.maxalt = maxalt;
-			this.minveg = minveg;
-			this.maxveg = maxveg;
-			this.tile = tile;
-		}
-	}
-	
-	//Example worlds that can be generated
-	private class Preset
-	{
-		public int key;
-		public int height, width, octaves;
-		public float biomeSize;
-		
-		public int tempMod, altMod, vegMod;
-		public float tempEx, altEx, vegEx;
-		
-		public Preset(int key, int height = 512, int width = 512, int octaves = 5, float biomeSize = 1,
-					int tempMod = 50, float tempEx = 1, int altMod = 50, float altEx = 1, int vegMod = 50, float vegEx = 1)
-		{
-			this.key = key;
-			this.height = height;
-			this.width = width;
-			this.octaves = octaves;
-			this.tempMod = tempMod;
-			this.tempEx = tempEx;
-			this.altMod = altMod;
-			this.altEx = altEx;
-			this.vegMod = vegMod;
-			this.vegEx = vegEx;
-			this.biomeSize = biomeSize;
-		}
-	}
-	
 	Dictionary<String, Biome> BiomeList = new Dictionary<String, Biome>();
 	Dictionary<String, Preset> WorldPresets = new Dictionary<String, Preset>();
 	
