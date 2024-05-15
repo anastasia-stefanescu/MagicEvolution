@@ -3,16 +3,20 @@ using System;
 
 public class WizbitStatsGenome : IGenome 
 {
-	public double maxMana;
-	public double maxHp;
-	public double maxMovementSpeed;
+	private double maxHp;
+	private double maxMana;
+	private double maxMovementSpeed;
 	
-	public WizbitStatsGenome(double mana, double hp, double speed)
+	public WizbitStatsGenome(double hp, double mana, double speed)
 	{
-		this.maxMana = mana;
 		this.maxHp = hp;
+		this.maxMana = mana;
 		this.maxMovementSpeed = speed;
 	}
+
+	public double getMaxHp() { return maxHp; }
+	public double getMaxMana() { return maxMana; }
+	public double getMaxMovementSpeed() { return maxMovementSpeed; }
 	
 	public void mutate(){
 		var rng = new RandomNumberGenerator();

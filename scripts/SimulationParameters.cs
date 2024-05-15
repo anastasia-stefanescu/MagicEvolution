@@ -60,6 +60,9 @@ public static class SimulationParameters {
 
 	}
 
+	public static class WizbitParameters {
+		public static MC_WeightFunctionEnum statsWeightFunction = MC_WeightFunctionEnum.Quadratic;
+	}
 
 	public static void resetToDefault() {
 		GD.Print("Warning! SimulationParameters::resetToDefault() currently does nothing!");

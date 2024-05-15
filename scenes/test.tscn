@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://di40y0pkf4ugv"]
+[gd_scene load_steps=5 format=3 uid="uid://di40y0pkf4ugv"]
 
-[ext_resource type="PackedScene" uid="uid://dy2ilo08cp6l5" path="res://scenes/wizbit.tscn" id="1_4lis3"]
 [ext_resource type="Script" path="res://scenes/test.cs" id="1_7v0q2"]
 [ext_resource type="Texture2D" uid="uid://chxscqjimneuv" path="res://frames/background_tile.png" id="2_cnwad"]
 [ext_resource type="PackedScene" uid="uid://dkxjsnkkk8l27" path="res://scenes/mana.tscn" id="3_y3swa"]
-[ext_resource type="Script" path="res://scripts/Wizbit/Wizbit.cs" id="4_6vbjk"]
+[ext_resource type="PackedScene" uid="uid://eus4kmkfr2ud" path="res://scenes/wizbit.tscn" id="4_3rmgh"]
 
 [node name="Test" type="Node2D"]
 position = Vector2(323, 124)
@@ -18,15 +17,13 @@ offset_bottom = 7441.0
 texture = ExtResource("2_cnwad")
 stretch_mode = 1
 
-[node name="Wizbit" parent="." instance=ExtResource("1_4lis3")]
-position = Vector2(-265, -55)
-script = ExtResource("4_6vbjk")
-
 [node name="Mana" parent="." instance=ExtResource("3_y3swa")]
 position = Vector2(-69, -49)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-264, -53)
 
+[node name="Wizbit" parent="." instance=ExtResource("4_3rmgh")]
+position = Vector2(-227, -66)
+
 [connection signal="body_entered" from="Mana" to="." method="_on_mana_body_entered"]
-[connection signal="body_entered" from="Mana" to="Wizbit" method="_on_mana_body_entered"]
