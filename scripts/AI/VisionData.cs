@@ -6,12 +6,6 @@ public struct VisionData {
 	public uint rayCount;
 	public VisionRayData[] raysData;
 	
-	public VisionData() 
-	{
-		this.rayCount=(uint)SimulationParameters.visionData_initialRayCount;
-		raysData = new VisionRayData[rayCount];
-	}
-
 	public VisionData(uint rayCount) 
 	{
 		this.rayCount=rayCount;

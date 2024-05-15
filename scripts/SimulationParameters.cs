@@ -13,9 +13,6 @@ public static class SimulationParameters {
 	public static double initialHp = 50;
 	
 	
-	public static double visionData_initialRayCount = 50;
-	
-	
 
 	public static class AIParameters {
 
