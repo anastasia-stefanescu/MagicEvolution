@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class wizbit : CharacterBody2D
+public partial class Wizbit : CharacterBody2D
 {
 	public WizbitStats date_wizbit;
 	public NeuralNetwork neuralNetwork;
@@ -24,7 +24,7 @@ public partial class wizbit : CharacterBody2D
 	//}
 	
 	
-	public wizbit()
+	public Wizbit()
 	{
 		date_wizbit = new WizbitStats();
 		date_wizbit.generate();
@@ -35,7 +35,7 @@ public partial class wizbit : CharacterBody2D
 		AddChild(neuralNetwork);
 	}
 	
-	public wizbit(WizbitStats stats, NeuralNetwork nn, float rotation, float rotation_speed, float speed, Sprite2D sprite)
+	public Wizbit(WizbitStats stats, NeuralNetwork nn, float rotation, float rotation_speed, float speed, Sprite2D sprite)
 	{
 		this.date_wizbit = stats;
 		this.neuralNetwork = nn; //?? copiem doar - trb facut clone 
@@ -60,9 +60,9 @@ public partial class wizbit : CharacterBody2D
 		return ai_input;
 	}
 	
-	public wizbit reproduce()
+	public Wizbit reproduce()
 	{
-		wizbit new_wizBit = new wizbit(this.date_wizbit, this.neuralNetwork, (float)this.rotation, (float)this.rotation_speed, (float)this.speed, this.sprite_2d);
+		Wizbit new_wizBit = new Wizbit(this.date_wizbit, this.neuralNetwork, (float)this.rotation, (float)this.rotation_speed, (float)this.speed, this.sprite_2d);
 		new_wizBit.mutate(); //aici trb apelat alt tip de mutate?
 		return new_wizBit;
 	}

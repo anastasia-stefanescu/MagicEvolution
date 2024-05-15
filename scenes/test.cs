@@ -11,7 +11,7 @@ public partial class test : Node2D
 	private int maxSize = (int)SimulationParameters.rangeOnWhichGenerated;
 	
 	 public PackedScene WizbitScene;
-	public List<wizbit> allWizbits = new List<wizbit>();
+	public List<Wizbit> allWizbits = new List<Wizbit>();
 	
 	public override void _Ready()
 	{
@@ -31,7 +31,7 @@ public partial class test : Node2D
 		
 		for (int i = 0; i < SimulationParameters.initialNoWizbits; i++)
 		{
-			wizbit instance2 = WizbitScene.Instantiate<wizbit>();
+			Wizbit instance2 = WizbitScene.Instantiate<Wizbit>();
 			instance2.Position = GetRandomPosition(maxSize, rng);
 			//GD.Print(instance2.neuralNetwork.inputNeuronCount);
 			AddChild(instance2);
@@ -82,14 +82,14 @@ public partial class test : Node2D
 
 		while (allWizbits.Count < threshold)
 		{
-			var instance = WizbitScene.Instantiate<wizbit>();
+			var instance = WizbitScene.Instantiate<Wizbit>();
 			instance.Position = GetRandomPosition(maxSize, rng);
 			AddChild(instance);
 			allWizbits.Add(instance);
 		}
 	}
 	
-	public List<wizbit> GetAllWizbits()
+	public List<Wizbit> GetAllWizbits()
 	{
 		return allWizbits;
 	}
