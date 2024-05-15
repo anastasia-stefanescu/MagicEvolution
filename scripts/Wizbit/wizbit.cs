@@ -76,9 +76,12 @@ public partial class Wizbit : CharacterBody2D
 		return new_wizBit;
 	}
 	
-	private void mutate()
-	{
-		throw new NotImplementedException();
+	public void mutate() {
+		stats.mutate();
+		currentHp=stats.getMaxHp();
+		currentMana=stats.getMaxMana();
+
+		neuralNetwork.mutate();
 	}
 	
 	private Vector2 apply_AI_Output()
