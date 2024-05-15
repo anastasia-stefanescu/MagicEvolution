@@ -3,7 +3,6 @@ using System;
 
 public partial class wizbit : CharacterBody2D
 {
-	 
 	public WizbitStats date_wizbit;
 	public NeuralNetwork neuralNetwork;
 
@@ -18,12 +17,17 @@ public partial class wizbit : CharacterBody2D
 	private double ai_rotation = 0;
 	private int frame_cnt = 0;
 
-	//
+	//public WizbitStats getWizbitStats()
+	//{
+		//var ref = this.date_wizbit;
+		//return ref;
+	//}
 	
 	
 	public wizbit()
 	{
 		date_wizbit = new WizbitStats();
+		date_wizbit.generate();
 		AddChild(date_wizbit);
 		var visGen = new VisionGenome(1, 0, 0);
 		var nnGenome = new NeuralNetworkGenome(visGen);
@@ -50,8 +54,9 @@ public partial class wizbit : CharacterBody2D
 		ai_input.movementCost = date_wizbit.movementCost;
 		//wizbit.constant = date_wizbit.constant; //constanta ar trebui initializata in constructor
 		ai_input.random = date_wizbit.random;
+		//GD.Print("intram getVisionData()");
 		ai_input.visionData = this.neuralNetwork.getVisionData().clone();
-
+		//GD.Print("returnam ai_input, intram in run");
 		return ai_input;
 	}
 	
@@ -69,6 +74,7 @@ public partial class wizbit : CharacterBody2D
 	
 	private Vector2 apply_AI_Output()
 	{
+		//GD.Print("apply Ai output");
 		AI_Output ai_output = neuralNetwork.run(this.construct_AI_input());
 
 		//output: movex, movey, rotate, reproduce
@@ -85,12 +91,12 @@ public partial class wizbit : CharacterBody2D
 		return movement;
 	}
 
-	//public override void _PhysicsProcess(float delta)
+	//public override void _PhysicsProcess(double delta)
 	//{
 		//Vector2 movement = apply_AI_Output();
 //
-		//float ro = ai_rotation * rotation_speed * (float)delta;
-		//movement = movement.Rotated(this.rotation);
+		//float rot = (float)ai_rotation * (float)rotation_speed * (float)delta;
+		//movement = movement.Rotated(rot);
 		//Velocity = movement;
 		//MoveAndSlide();
 	//}
@@ -124,10 +130,7 @@ public partial class wizbit : CharacterBody2D
 		MoveAndSlide();
 	}
 	
-	//private void _on_mana_body_entered(Node2D body)
-	//{
-		//
-	//}
+	
 }
 
 

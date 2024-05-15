@@ -21,24 +21,29 @@ public partial class test : Node2D
 		var rng = new RandomNumberGenerator();
 		rng.Randomize(); 
 		
-		for (int i = 0; i < SimulationParameters.initialNoWizbits; i++)
+		for (int i = 0; i < SimulationParameters.initialNoMana; i++)
 		{
 			Mana instance = ManaScene.Instantiate<Mana>();
 			instance.Position = GetRandomPosition(maxSize, rng);
 			AddChild(instance);
-			//allMana.Add(instance);
-			
+			allMana.Add(instance);
+		}
+		
+		for (int i = 0; i < SimulationParameters.initialNoWizbits; i++)
+		{
 			wizbit instance2 = WizbitScene.Instantiate<wizbit>();
 			instance2.Position = GetRandomPosition(maxSize, rng);
+			//GD.Print(instance2.neuralNetwork.inputNeuronCount);
 			AddChild(instance2);
 			allWizbits.Add(instance2);
 		}
 	}
 	
-	public void _Process(float delta)
+	public override void _Process(double delta)
 	{
-		//ReplenishMana(200);
-		//ReplenishWizbits(200);
+		
+		ReplenishMana(100);
+		ReplenishWizbits(5);
 	}
 	
 	public Vector2 GetRandomPosition(int maxSize, RandomNumberGenerator rng)

@@ -10,7 +10,7 @@ public partial class Vision : Godot.Node2D {
 	private RayCast2D[] rayNodes;
 
 	public VisionData getVisionData() {
-		GD.Print("Warning! Vision.getVisionData not yet implemented!");
+		//GD.Print("Warning! Vision.getVisionData not yet implemented!");
 		return new VisionData(genome.calcRayCount());
 	}
 
