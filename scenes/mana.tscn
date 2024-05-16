@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkxjsnkkk8l27"]
 
 [ext_resource type="Texture2D" uid="uid://2eddt51n7kp6" path="res://frames/mana_sprite.png" id="1_5og0u"]
-[ext_resource type="Script" path="res://scenes/Mana.cs" id="1_ocp70"]
+[ext_resource type="Script" path="res://scripts/Mana.cs" id="1_fblh2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brcwe"]
 radius = 18.0
 height = 54.0
 
 [node name="Mana" type="Area2D"]
-script = ExtResource("1_ocp70")
+script = ExtResource("1_fblh2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5og0u")
