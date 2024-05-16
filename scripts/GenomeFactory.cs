@@ -3,6 +3,17 @@ using Godot;
 
 public static class GenomeFactory {
 
+    public static WizbitStatsGenome getStarterWizbitStatsGenome() {
+        RandomNumberGenerator rng = new RandomNumberGenerator();
+        rng.Randomize();
+
+        double maxHp = rng.RandfRange(50, 200);
+        double maxMana = rng.RandfRange((float)maxHp, 2*(float)maxHp);
+        double maxMovementSpeed = rng.RandfRange(50, 200);
+        
+        return new WizbitStatsGenome(maxHp, maxMana, maxMovementSpeed);
+    }
+
     public static VisionGenome getStarterVisionGenome() {
         RandomNumberGenerator rng = new RandomNumberGenerator();
         rng.Randomize();

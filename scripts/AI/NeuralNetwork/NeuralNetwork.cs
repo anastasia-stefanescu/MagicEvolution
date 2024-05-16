@@ -14,7 +14,7 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 	private Synapse[] synapses;
 
 	public NeuralNetwork(NeuralNetworkGenome genome) {
-		this.genome=genome;
+		this.genome=(NeuralNetworkGenome)genome.clone();
 		generate();
 	}
 

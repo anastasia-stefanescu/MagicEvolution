@@ -16,7 +16,7 @@ public partial class Vision : Godot.Node2D {
 
 	// this is only public because AI implementations need to see it
 	public void updateGenome(VisionGenome newGenome) {
-		genome=newGenome;
+		genome=(VisionGenome)newGenome.clone();
 		generate();
 	}
 

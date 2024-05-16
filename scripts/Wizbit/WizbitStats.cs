@@ -10,7 +10,7 @@ public partial class WizbitStats : ManaConsumer, IEvolvable {
 	
 	public WizbitStats(WizbitStatsGenome genome)
 	{
-		this.genome=genome;
+		this.genome=(WizbitStatsGenome)genome.clone();
 		generate();
 	}
 

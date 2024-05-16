@@ -33,15 +33,11 @@ public partial class Wizbit : CharacterBody2D
 	{
 		base._EnterTree();
 		if(stats==null)
-			stats = new WizbitStats(new WizbitStatsGenome(100, 100, 100));
+			stats = new WizbitStats(GenomeFactory.getStarterWizbitStatsGenome());
 		AddChild(stats);
 
 		if(neuralNetwork == null)
-		{
-			var visGen = new VisionGenome(1, 0, 0);
-			var nnGenome = new NeuralNetworkGenome(visGen);
-			neuralNetwork = new NeuralNetwork(nnGenome);
-		}
+			neuralNetwork = new NeuralNetwork(GenomeFactory.getStarterNNGenome());
 		AddChild(neuralNetwork);
 	}
 

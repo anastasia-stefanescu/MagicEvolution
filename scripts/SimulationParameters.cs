@@ -8,11 +8,6 @@ public static class SimulationParameters {
 	public static double initialNoWizbits = 5;
 	public static double initialNoMana = 100;
 	
-	public static double manaValue = 5;
-	public static double initialMana = 50;
-	public static double initialHp = 50;
-	
-	
 
 	public static class AIParameters {
 
