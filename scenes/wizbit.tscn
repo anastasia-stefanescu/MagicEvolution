@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy2ilo08cp6l5"]
+[gd_scene load_steps=4 format=3 uid="uid://eus4kmkfr2ud"]
 
-[ext_resource type="Script" path="res://scripts/Wizbit/wizbit.cs" id="1_bdrr4"]
+[ext_resource type="Script" path="res://scripts/Wizbit/Wizbit.cs" id="1_dyog5"]
 [ext_resource type="Texture2D" uid="uid://ddsq12lirgi4v" path="res://frames/wizbit.png" id="1_el7jh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t35im"]
-radius = 27.2947
+radius = 31.0161
 
 [node name="Wizbit" type="CharacterBody2D"]
-script = ExtResource("1_bdrr4")
+script = ExtResource("1_dyog5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_el7jh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_t35im")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_el7jh")

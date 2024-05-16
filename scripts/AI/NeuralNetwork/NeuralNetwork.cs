@@ -82,6 +82,8 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		neurons = tmpNeurons.ToArray();
 	}
 
+	public IGenome getGenomeCopy() { return genome.clone(); }
+
 	public VisionData getVisionData() {
 		if(visionNode == null)
 			throw new AppException("Error in AI: visionNode is null. Make sure the vision node was constructed before call (preferably in child class' constructor and/or in its _enter_tree function).");
