@@ -7,9 +7,10 @@ range: increases or decreases current range by at most a fraction p of the curre
 
 ==== NeuralNetworkGenome ====
 # mutation rolls are independent and applied in the following order
-create synapse: picks a random pair of unconnected neurons (if one exists) and creates a synapse between them of a random weight between -a and a (a=SimulationParameters.AIParameters.MutationParameters.synapseMaxAbsoluteWeight)
-modify synapse: picks a random synapse and changes its weight by at most a fraction pof the current weight (p=SimulationParameters.AIParameters.MutationParameters.synapseModificationMaxChange)
+create synapse: picks a random pair of unconnected neurons (if one exists) and creates a synapse between them of a random weight between -s and s (a=SimulationParameters.AIParameters.synapseMaxAbsoluteWeight)
+modify synapse: picks a random synapse and changes its weight by at most a fraction p of the current weight, clamping the result between -s and s
+(p=SimulationParameters.AIParameters.MutationParameters.synapseModificationMaxChange, s=SimulationParameters.AIParameters.synapseMaxAbsoluteWeight)
 evolve synapse: picks a random synapse and turns it into 2 new ones, with a new neuron in between. the synapse connected to the original source will have a weight equal to the original one's, while the other new synapse will have a weight of 1. the new neuron will have the identity activation function
 remove synapse: picks a random synapse and removes it
 modify (hidden) neuron: picks a random hidden neuron, if one exists, and changes its activation function to another one at random
-remove (hidden) neuron:
+remove (hidden) neuron: picks a random hidden neuron, if one exists, and removes it along with all synapses connected to it

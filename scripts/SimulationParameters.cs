@@ -16,6 +16,9 @@ public static class SimulationParameters {
 
 	public static class AIParameters {
 
+		// max possible absolute value of a mutated synapse
+		public static double synapseMaxAbsoluteWeight=5;
+
 		public static class MutationChances {
 			public static double fov=0.01;
 			public static double rayCountCode=0.05;
@@ -40,9 +43,6 @@ public static class SimulationParameters {
 
 			// max possible range change (increase or decrease) as a fraction of the current range
 			public static double visionRangeMaxChange=0.25;
-
-			// max possible absolute value of a mutated synapse
-			public static double synapseMaxAbsoluteWeight=5;
 
 			// max possible synapse weight change as a fraction of the current weight
 			public static double synapseModificationMaxChange=0.25;

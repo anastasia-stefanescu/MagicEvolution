@@ -96,13 +96,20 @@ public class NeuralNetworkGenome : IGenome {
 			return;
 		}
 		uint totalNeuronCount = getInputNeuronCount()+hiddenNeuronCount+AI_Output.fieldCount;
- 		for(uint i=0; i<synapses.Length; i++)
+ 		for(uint i=0; i<synapses.Length; i++) {
 			if(synapses[i].sourceIndex>=totalNeuronCount || synapses[i].destinationIndex>=totalNeuronCount) // invalid indices
 				throw new AppException("Error in NeuralNetworkGenome constructor: parameter synapses array contains invalid indices.");
 			else if(synapses[i].destinationIndex < getInputNeuronCount())
-				throw new AppException("Error in NeuralNetworkGenome constructor: parameter synapses array contains synapses with input neurons as destiontions.");
+				throw new AppException("Error in NeuralNetworkGenome constructor: parameter synapses array contains synapses with input neurons as destinations.");
 			else if(synapses[i].sourceIndex >= getInputNeuronCount() && synapses[i].sourceIndex < getInputNeuronCount()+AI_Output.fieldCount )
 				throw new AppException("Error in NeuralNetworkGenome constructor: parameter synapses array contains synapses with output neurons as destinations.");
+			
+			// clamp synapse weights
+			double maxAbsWeight = SimulationParameters.AIParameters.synapseMaxAbsoluteWeight;
+			if(synapses[i].weight < -maxAbsWeight || synapses[i].weight > maxAbsWeight)
+				GD.Print("Warning! NeuralNetworkGenome constructor received synapse weights outside the specified limits. Clamping.");
+			synapses[i].weight = Mathf.Clamp(synapses[i].weight, -maxAbsWeight, maxAbsWeight);
+		}
 
 		this.synapses = (Synapse[])synapses.Clone();
 	}
@@ -144,7 +151,7 @@ public class NeuralNetworkGenome : IGenome {
 		
 		uint newSource = missingArray[randIndex].Item1;
 		uint newDestination = missingArray[randIndex].Item2;
-		double maxAbsWeight = SimulationParameters.AIParameters.MutationParameters.synapseMaxAbsoluteWeight;
+		double maxAbsWeight = SimulationParameters.AIParameters.synapseMaxAbsoluteWeight;
 		double weight = rng.RandfRange((float)-maxAbsWeight, (float)maxAbsWeight);
 
 		synapses = synapses.Append(new Synapse(newSource, newDestination, weight)).ToArray();
@@ -158,8 +165,10 @@ public class NeuralNetworkGenome : IGenome {
 		rng.Randomize();
 
 		double maxChange = SimulationParameters.AIParameters.MutationParameters.synapseModificationMaxChange;
+		double maxAbsWeight = SimulationParameters.AIParameters.synapseMaxAbsoluteWeight;
 		int randIndex = rng.RandiRange(0, synapses.Length-1);
 		synapses[randIndex].weight = (1+rng.RandfRange((float)-maxChange, (float)maxChange))*synapses[randIndex].weight;
+		synapses[randIndex].weight = Mathf.Clamp(synapses[randIndex].weight, -maxAbsWeight, maxAbsWeight);
 	}
 
 	private void mutate_evolveSynapse() {
