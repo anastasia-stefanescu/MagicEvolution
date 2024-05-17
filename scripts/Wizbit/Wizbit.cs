@@ -89,7 +89,7 @@ public partial class Wizbit : CharacterBody2D
 		
 		if (ai_output.reproduce > 0.5)
 		{
-			//this.reproduce();
+			this.reproduce();
 		}
 
 		return movement;

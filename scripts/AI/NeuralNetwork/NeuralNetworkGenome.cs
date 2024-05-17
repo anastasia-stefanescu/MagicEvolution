@@ -11,6 +11,7 @@ public class NeuralNetworkGenome : IGenome {
 	private NN_ActivationFunctionEnum[] hiddenActivationFunctions;
 
 	public void mutate() {
+		GD.Print("mutating");
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
 
@@ -55,9 +56,10 @@ public class NeuralNetworkGenome : IGenome {
 		if(rng.RandfRange(0, 1) < SimulationParameters.AIParameters.MutationChances.modifySynapse)
 			mutate_modifySynapse();
 
-		// roll for synapse evolution
+		// roll for synapse evolution	
 		if(rng.RandfRange(0, 1) < SimulationParameters.AIParameters.MutationChances.evolveSynapse)
 			mutate_evolveSynapse();
+			
 
 		// roll for synapse removal
 		if(rng.RandfRange(0, 1) < SimulationParameters.AIParameters.MutationChances.removeSynapse)
@@ -246,6 +248,7 @@ public class NeuralNetworkGenome : IGenome {
 				dst--;
 			newSynapses.Append(new Synapse(src, dst, synapses[i].weight));
 		}
+		hiddenNeuronCount--;
 		synapses=newSynapses.ToArray();
 	}
 }

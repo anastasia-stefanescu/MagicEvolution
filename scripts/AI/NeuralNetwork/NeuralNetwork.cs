@@ -76,8 +76,21 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 			neurons[inputNeuronCount + i] = new Neuron(NN_ActivationFunctionEnum.UnitClamp);
 		// add hidden neurons
 		NN_ActivationFunctionEnum[] tmpHiddenNeuronAF = genome.getHiddenActivationFunctionsCopy();
-		for(uint i=0; i<hiddenNeuronCount; i++)
+		for(uint i=0; i<hiddenNeuronCount; i++) {
+			if(inputNeuronCount + outputNeuronCount + i >= neurons.Length) {
+				GD.Print("neurons index: " + (inputNeuronCount + outputNeuronCount + i));
+				GD.Print("neurons.Length: " + neurons.Length);
+				GD.Print("\n");
+			}
+			if(i >= tmpHiddenNeuronAF.Length) {
+				GD.Print("tmpHiddenNeuronAF index: " + i);
+				GD.Print("tmpHiddenNeuronAF.Length: " + tmpHiddenNeuronAF.Length);
+				GD.Print("Hidden neuron count: " + hiddenNeuronCount);
+				GD.Print("\n");
+			}
+
 			neurons[inputNeuronCount + outputNeuronCount + i] = new Neuron(tmpHiddenNeuronAF[i]);
+		}
 	}
 
 	public IGenome getGenomeCopy() { return genome.clone(); }
