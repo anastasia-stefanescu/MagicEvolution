@@ -98,11 +98,11 @@ public class NeuralNetworkGenome : IGenome {
 		uint totalNeuronCount = getInputNeuronCount()+hiddenNeuronCount+AI_Output.fieldCount;
  		for(uint i=0; i<synapses.Length; i++) {
 			if(synapses[i].sourceIndex>=totalNeuronCount || synapses[i].destinationIndex>=totalNeuronCount) // invalid indices
-				throw new AppException("Error in NeuralNetworkGenome constructor: parameter synapses array contains invalid indices.");
+				throw new AppException("Error in NeuralNetworkGenome constructor: parameter synapses array contains invalid indices. (synapse " + i +")");
 			else if(synapses[i].destinationIndex < getInputNeuronCount())
-				throw new AppException("Error in NeuralNetworkGenome constructor: parameter synapses array contains synapses with input neurons as destinations.");
+				throw new AppException("Error in NeuralNetworkGenome constructor: parameter synapses array contains synapses with input neurons as destinations. (synapse " + i +")");
 			else if(synapses[i].sourceIndex >= getInputNeuronCount() && synapses[i].sourceIndex < getInputNeuronCount()+AI_Output.fieldCount )
-				throw new AppException("Error in NeuralNetworkGenome constructor: parameter synapses array contains synapses with output neurons as destinations.");
+				throw new AppException("Error in NeuralNetworkGenome constructor: parameter synapses array contains synapses with output neurons as destinations. (synapse " + i +")");
 			
 			// clamp synapse weights
 			double maxAbsWeight = SimulationParameters.AIParameters.synapseMaxAbsoluteWeight;

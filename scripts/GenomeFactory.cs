@@ -20,7 +20,7 @@ public static class GenomeFactory {
 
         double fov = rng.RandfRange(0, 1);
         uint rayCountCode = (uint)rng.RandiRange(0, 5);
-        double range = rng.RandfRange(50, 200);
+        double range = rng.RandfRange(150, 300);
 
         return new VisionGenome(fov, rayCountCode, range);
     }
@@ -40,8 +40,8 @@ public static class GenomeFactory {
         Synapse[] possibleSynapses = new Synapse[inputNeuronCount * outputNeuronCount];
         for(uint i=0; i<inputNeuronCount; i++)
             for(uint j=0; j<outputNeuronCount; j++) {
-                possibleSynapses[i*inputNeuronCount+j].sourceIndex=i;
-                possibleSynapses[i*inputNeuronCount+j].destinationIndex=inputNeuronCount+j;
+                possibleSynapses[i*outputNeuronCount+j].sourceIndex=i;
+                possibleSynapses[i*outputNeuronCount+j].destinationIndex=inputNeuronCount+j;
                 // roll weights when choosing to avoid unnecessary random calls
             }
         
@@ -49,7 +49,7 @@ public static class GenomeFactory {
         Synapse[] synapses = new Synapse[synapseCount];
         int synapsesToSelect = synapseCount;
         for(int i=0; i<possibleSynapses.Length; i++) {
-            if(rng.RandfRange(0, 1) < ((double)synapsesToSelect)/possibleSynapses.Length) {
+            if(rng.RandfRange(0, 1) < ((double)synapsesToSelect)/(possibleSynapses.Length-i)) {
                 synapses[synapseCount-synapsesToSelect]=possibleSynapses[i];
 
                 // roll weight

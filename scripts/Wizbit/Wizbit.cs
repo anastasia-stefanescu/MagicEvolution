@@ -9,7 +9,7 @@ public partial class Wizbit : CharacterBody2D
 	private double currentHp;
 	private double currentMana;
 
-	private double rotation_speed = 2;
+	private static readonly double rotation_speed = 2;
 	
 	//cele vechi, am pus double in loc de float
 	private double ai_x = 0;
@@ -24,10 +24,7 @@ public partial class Wizbit : CharacterBody2D
 	//}
 	
 	
-	public Wizbit()
-	{
-		GD.Print("Warning! Wizbit default constructor should be eventually removed!");
-	}
+	public Wizbit() {}
 
 	public override void _EnterTree()
 	{
@@ -68,7 +65,7 @@ public partial class Wizbit : CharacterBody2D
 	public Wizbit reproduce()
 	{
 		Wizbit new_wizBit = new Wizbit((WizbitStatsGenome)stats.getGenomeCopy(), (NeuralNetworkGenome)neuralNetwork.getGenomeCopy());
-		new_wizBit.mutate(); //aici trb apelat alt tip de mutate?
+		new_wizBit.mutate(); //aici trb apelat alt tip de mutate? (nu, e bine)
 		return new_wizBit;
 	}
 	
@@ -92,24 +89,25 @@ public partial class Wizbit : CharacterBody2D
 		
 		if (ai_output.reproduce > 0.5)
 		{
-			this.reproduce();
+			//this.reproduce();
 		}
 
 		return movement;
 	}
 
-	//public override void _PhysicsProcess(double delta)
-	//{
-		//Vector2 movement = apply_AI_Output();
-//
-		//float rot = (float)ai_rotation * (float)rotation_speed * (float)delta;
-		//movement = movement.Rotated(rot);
-		//Velocity = movement;
-		//MoveAndSlide();
-	//}
+	public override void _Process(double delta)
+	{
+		Vector2 movement = apply_AI_Output();
+		movement = new Vector2(0, 0); // FOR TESTING ONLY
+
+		float rot = (float)ai_rotation * (float)rotation_speed * (float)delta;
+		movement = movement.Rotated(rot);
+		Velocity = movement;
+		MoveAndSlide();
+	}
 
 
-	public override void _PhysicsProcess(double delta)
+	/*public override void _Process(double delta)
 	{
 		Velocity = new Vector2((float)ai_x, (float)ai_y) * (float)stats.getMaxMovementSpeed();
 
@@ -134,7 +132,7 @@ public partial class Wizbit : CharacterBody2D
 		frame_cnt = (frame_cnt + 1) % 120;
 		
 		MoveAndSlide();
-	}
+	}*/
 	
 	
 }

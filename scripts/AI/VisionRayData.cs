@@ -21,7 +21,7 @@ public struct VisionRayData {
 	/// <summary>
 	/// should be either 1 or 0
 	/// </summary>
-	public double isManaPellet;
+	public double isMana;
 
 	/// <summary>
 	/// should be either 1 or 0

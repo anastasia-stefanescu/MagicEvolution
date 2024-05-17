@@ -34,7 +34,7 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		for(uint i=0; i<genome.getVisionNeuronCount(); i++) {
 			neurons[AI_Input.nonVisionDataFieldCount + i*VisionRayData.fieldCount + 0].stimulate(input.visionData.raysData[i].distance);
 			neurons[AI_Input.nonVisionDataFieldCount + i*VisionRayData.fieldCount + 1].stimulate(input.visionData.raysData[i].angle);
-			neurons[AI_Input.nonVisionDataFieldCount + i*VisionRayData.fieldCount + 2].stimulate(input.visionData.raysData[i].isManaPellet);
+			neurons[AI_Input.nonVisionDataFieldCount + i*VisionRayData.fieldCount + 2].stimulate(input.visionData.raysData[i].isMana);
 			neurons[AI_Input.nonVisionDataFieldCount + i*VisionRayData.fieldCount + 3].stimulate(input.visionData.raysData[i].isWizbit);
 		}
 		for(uint i=0; i<inputNeuronCount; i++)
@@ -67,19 +67,17 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		hiddenNeuronCount = genome.getHiddenNeuronCount();
 		synapses = genome.getSynapsesCopy();
 
-		List<Neuron> tmpNeurons = new List<Neuron>();
+		neurons = new Neuron[inputNeuronCount+outputNeuronCount+hiddenNeuronCount];
 		// add input neurons
 		for(uint i=0; i<inputNeuronCount; i++)
-			tmpNeurons.Add(new Neuron(NN_ActivationFunctionEnum.Identity));
+			neurons[i] = new Neuron(NN_ActivationFunctionEnum.Identity);
 		// add output neurons
-		for(uint i=0; i<AI_Output.fieldCount; i++)
-			tmpNeurons.Add(new Neuron(NN_ActivationFunctionEnum.UnitClamp));
+		for(uint i=0; i<outputNeuronCount; i++)
+			neurons[inputNeuronCount + i] = new Neuron(NN_ActivationFunctionEnum.UnitClamp);
 		// add hidden neurons
 		NN_ActivationFunctionEnum[] tmpHiddenNeuronAF = genome.getHiddenActivationFunctionsCopy();
 		for(uint i=0; i<hiddenNeuronCount; i++)
-			tmpNeurons.Add(new Neuron(tmpHiddenNeuronAF[i]));
-		
-		neurons = tmpNeurons.ToArray();
+			neurons[inputNeuronCount + outputNeuronCount + i] = new Neuron(tmpHiddenNeuronAF[i]);
 	}
 
 	public IGenome getGenomeCopy() { return genome.clone(); }
