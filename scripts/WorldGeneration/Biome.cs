@@ -13,7 +13,7 @@ class Biome
 		this.key = key;
 		this.mintemp = mintemp;
 		this.maxtemp = maxtemp;
-    	this.minalt = minalt;
+		this.minalt = minalt;
 		this.maxalt = maxalt;
 		this.minveg = minveg;
 		this.maxveg = maxveg;

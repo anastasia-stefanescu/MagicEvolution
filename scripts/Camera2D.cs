@@ -20,6 +20,7 @@ public partial class Camera2D : Godot.Camera2D
 	public override void _Process(double delta)
 	{
 		newPosition = this.Position;
+		//GD.Print(newPosition);
 		newZoom = cameraLevels[cameraLevel];
 		
 		if(Input.IsActionPressed("move_right") && this.Position.X < 4096 - 400 / this.Zoom.X)
