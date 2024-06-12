@@ -6,13 +6,10 @@ public partial class test : Node2D
 {
 	
 	public PackedScene ManaScene;
-	public List<Mana> allMana = new List<Mana>();
-	
 	private int maxSize = (int)SimulationParameters.rangeOnWhichGenerated;
-	
-	 public PackedScene WizbitScene;
-	public List<Wizbit> allWizbits = new List<Wizbit>();
-	
+	private List<Wizbit> allWizbits = new List<Wizbit>();
+	private List<Mana> allMana = new List<Mana>();
+	public PackedScene WizbitScene;
 	public override void _Ready()
 	{
 		ManaScene = GD.Load<PackedScene>("res://scenes/mana.tscn");
@@ -28,6 +25,7 @@ public partial class test : Node2D
 			AddChild(instance);
 			allMana.Add(instance);
 		}
+		SimulationParameters.crtNoMana = SimulationParameters.initialNoMana;
 		
 		for (int i = 0; i < SimulationParameters.initialNoWizbits; i++)
 		{
@@ -41,9 +39,9 @@ public partial class test : Node2D
 	
 	public override void _Process(double delta)
 	{
-		
-		ReplenishMana(100);
-		ReplenishWizbits(5);
+		double cat_se_consuma_pe_frame = SimulationParameters.crtNoWizbits * SimulationParameters.WizbitStatsParameters.constantCost;
+		ReplenishMana((int)SimulationParameters.initialNoMana); //am pus asa deocamdata
+		//ReplenishWizbits(5);
 	}
 	
 	public Vector2 GetRandomPosition(int maxSize, RandomNumberGenerator rng)
@@ -56,23 +54,19 @@ public partial class test : Node2D
 	
 	public void ReplenishMana(int threshold)
 	{
+	
 		var rng = new RandomNumberGenerator();
 		rng.Randomize(); // Seed with current time
 
-		while (allMana.Count < threshold)
+		if (SimulationParameters.crtNoMana < threshold)
 		{
 			Mana instance = ManaScene.Instantiate<Mana>();
 			instance.Position = GetRandomPosition(maxSize, rng);
 			AddChild(instance);
+			//GD.Print("replenished mana by 1");
+			SimulationParameters.crtNoMana++;
 			allMana.Add(instance);
-			
-			
 		}
-	}
-	
-	public List<Mana> GetAllMana()
-	{
-		return allMana;
 	}
 	
 	public void ReplenishWizbits(int threshold)
@@ -80,25 +74,13 @@ public partial class test : Node2D
 		var rng = new RandomNumberGenerator();
 		rng.Randomize(); // Seed with current time
 
-		while (allWizbits.Count < threshold)
+		if (SimulationParameters.crtNoWizbits < threshold)
 		{
 			var instance = WizbitScene.Instantiate<Wizbit>();
 			instance.Position = GetRandomPosition(maxSize, rng);
 			AddChild(instance);
-			allWizbits.Add(instance);
 		}
 	}
-	
-	public List<Wizbit> GetAllWizbits()
-	{
-		return allWizbits;
-	}
-	
-	//private void _on_mana_body_entered(Node2D body)
-//{
-		//GD.Print("Body has entered");
-		//QueueFree();
-//}
 }
 
 

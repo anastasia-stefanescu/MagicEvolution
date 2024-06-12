@@ -32,6 +32,7 @@ public partial class WizbitStats : ManaConsumer, IEvolvable {
 
 	public override void calculateCosts(){
 		throw new NotImplementedException();
+		//return this.getWeighedUseCost();
 	}
 
 	protected override MC_WeightFunctionEnum getWeightFunction(){
