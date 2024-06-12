@@ -10,6 +10,10 @@ radius = 25.1794
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_dyog5")
 
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_el7jh")
 

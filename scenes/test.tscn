@@ -1,19 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://y2vtta8qngul"]
+[gd_scene load_steps=9 format=3 uid="uid://y2vtta8qngul"]
 
 [ext_resource type="Script" path="res://scripts/ManaGeneration.cs" id="1_7m7nn"]
 [ext_resource type="Script" path="res://scripts/Camera2D.cs" id="2_cjm3d"]
 [ext_resource type="Texture2D" uid="uid://chxscqjimneuv" path="res://frames/background_tile.png" id="2_cnwad"]
 [ext_resource type="PackedScene" uid="uid://dkxjsnkkk8l27" path="res://scenes/mana.tscn" id="3_y3swa"]
 [ext_resource type="PackedScene" uid="uid://ctabwllchhe51" path="res://scenes/wizbit.tscn" id="4_3rmgh"]
-[ext_resource type="PackedScene" uid="uid://chng1o38m6b33" path="res://world_generator.tscn" id="5_x7e4y"]
+[ext_resource type="PackedScene" uid="uid://m26twuwx2q4n" path="res://wall_up.tscn" id="5_2j3xs"]
+[ext_resource type="PackedScene" uid="uid://08q5lkio71xe" path="res://wall_left.tscn" id="6_ol3uk"]
+[ext_resource type="PackedScene" uid="uid://b3wmyv8o1q8l1" path="res://wall_right.tscn" id="7_nn20m"]
+[ext_resource type="PackedScene" uid="uid://gcv53gdugirf" path="res://wall_down.tscn" id="8_fkoha"]
 
 [node name="Test" type="Node2D"]
+script = ExtResource("1_ykmdt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -13418.0
-offset_top = -7581.0
-offset_right = 13168.0
-offset_bottom = 7562.0
+offset_left = -13391.0
+offset_top = -7550.0
+offset_right = 13195.0
+offset_bottom = 7593.0
 texture = ExtResource("2_cnwad")
 stretch_mode = 1
 
@@ -39,3 +43,15 @@ rotation = -2.20281
 
 [node name="ManaGeneration" type="Node2D" parent="."]
 script = ExtResource("1_7m7nn")
+
+[node name="WallUp" parent="." instance=ExtResource("5_2j3xs")]
+position = Vector2(-432, -163)
+
+[node name="WallLeft" parent="." instance=ExtResource("6_ol3uk")]
+position = Vector2(-801, -393)
+
+[node name="WallRight" parent="." instance=ExtResource("7_nn20m")]
+position = Vector2(-835, -398)
+
+[node name="WallDown" parent="." instance=ExtResource("8_fkoha")]
+position = Vector2(-830, -374)

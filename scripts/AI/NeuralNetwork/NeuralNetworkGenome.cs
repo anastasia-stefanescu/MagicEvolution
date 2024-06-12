@@ -11,7 +11,7 @@ public class NeuralNetworkGenome : IGenome {
 	private NN_ActivationFunctionEnum[] hiddenActivationFunctions;
 
 	public void mutate() {
-		GD.Print("mutating");
+		//GD.Print("mutating");
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
 

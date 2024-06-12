@@ -14,3 +14,8 @@ evolve synapse: picks a random synapse and turns it into 2 new ones, with a new 
 remove synapse: picks a random synapse and removes it
 modify (hidden) neuron: picks a random hidden neuron, if one exists, and changes its activation function to another one at random
 remove (hidden) neuron: picks a random hidden neuron, if one exists, and removes it along with all synapses connected to it
+
+=== WizbitStatsGenome ===
+maxHp : increases/decreases by at most 0.4 of current value
+maxMana : increases/decreases by at most 0.4 of current value
+maxMovementSpeed :  increases/decreases by at most 0.25 of current value

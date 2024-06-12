@@ -2,11 +2,13 @@ using Godot;
 using System;
 
 public abstract partial class ManaConsumer : Godot.Node2D {
-	protected double constantCost;
-	protected double useCost;
+	protected double constantCost = SimulationParameters.WizbitStatsParameters.constantCost;
+	protected double useCost = SimulationParameters.WizbitStatsParameters.useCost;
 
 	public double getConstantCost() { return constantCost; }
+
 	public double getUseCost() { return useCost; }
+
 
 	public double getWeighedUseCost(double weight=1) { return useCost * applyWeightFunction(weight); }
 

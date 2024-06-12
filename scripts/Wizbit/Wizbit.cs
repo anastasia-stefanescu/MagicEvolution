@@ -9,21 +9,10 @@ public partial class Wizbit : CharacterBody2D
 	//private int id;
 	//private int id_generator = 0;
 	public Label label;
-
-	private double currentHp;
-	private double currentMana;
+	private double currentHp = 100;
+	private double currentMana = 100;
 	private static readonly double rotation_speed = 2;
-	
-	//cat timp a trecut de la crearea wizbitului
-	private int time_elapsed;
-	
-	//cele vechi, am pus double in loc de float
-	private double ai_x = 0;
-	private double ai_y = 0;
-	private double ai_rotation = 0;
-	private int frame_cnt = 0;
 
-	
 	public Wizbit() {
 		
 	}
@@ -76,9 +65,9 @@ public partial class Wizbit : CharacterBody2D
 	
 	public Wizbit reproduce()
 	{
-		Wizbit new_wizBit = new Wizbit((WizbitStatsGenome)stats.getGenomeCopy(), (NeuralNetworkGenome)neuralNetwork.getGenomeCopy());
-		new_wizBit.mutate(); //aici trb apelat alt tip de mutate? (nu, e bine)
-		return new_wizBit;
+		Wizbit new_wizbit = new Wizbit((WizbitStatsGenome)stats.getGenomeCopy(), (NeuralNetworkGenome)neuralNetwork.getGenomeCopy());
+		new_wizbit.mutate(); //aici trb apelat alt tip de mutate? (nu, e bine)
+		return new_wizbit;
 	}
 	
 	public void mutate() {
@@ -93,10 +82,20 @@ public partial class Wizbit : CharacterBody2D
 	{
 		AI_Output ai_output = neuralNetwork.run(this.construct_AI_input());
 
-		if (ai_output.reproduce > 0.5)
+		if (ai_output.reproduce > 0.5 && this.currentHp >= 0.75 * this.stats.getMaxHp())
 		{
+			this.currentHp -= 0.75 * this.stats.getMaxHp();
+			this.currentMana -= this.stats.getWeighedUseCost(0.75);
 			this.reproduce();
 		}
+
+		//aici va fi si pt vraji
+		// if (ai_output.cast_spell > 0.5 && this.currentHp >= 0.25 * this.stats.getMaxHp())
+		// {
+		// 	this.currentHp -= 0.25 * this.stats.getMaxHp()
+		// 	this.currentMana -= this.stats.getWeighedUseCost(0.25)
+		// 	this.reproduce();
+		// }
 
 		return ai_output;
 	}
@@ -104,8 +103,12 @@ public partial class Wizbit : CharacterBody2D
 	public override void _Process(double delta)
 	{
 		//descrestem mana
-		//this.currentMana -= this.stats.base.constantCost * 
-		
+		this.currentMana -= this.stats.getConstantCost(); 
+		GD.Print(this.currentMana);
+		if (this.currentMana <= 0)
+		{
+			QueueFree();
+		}
 		AI_Output ai_output = apply_AI_Output();
 		
 		Vector2 movement = new Vector2((float)ai_output.moveX, (float)ai_output.moveY) * (float)stats.getMaxMovementSpeed();
