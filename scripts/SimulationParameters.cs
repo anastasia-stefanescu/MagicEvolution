@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 public static class SimulationParameters {
 	
-	public static double rangeOnWhichGenerated = 300;
+	public static double rangeOnWhichGeneratedX = 1150;
+	public static double rangeOnWhichGeneratedY = 670;
 	public static double initialNoWizbits = 8;
 	public static double initialNoMana = 20;
 	public static double crtNoWizbits = initialNoWizbits;

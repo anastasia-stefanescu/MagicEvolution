@@ -6,7 +6,8 @@ public partial class test : Node2D
 {
 	
 	public PackedScene ManaScene;
-	private int maxSize = (int)SimulationParameters.rangeOnWhichGenerated;
+	private int maxSizeX = (int)SimulationParameters.rangeOnWhichGeneratedX;
+	private int maxSizeY = (int)SimulationParameters.rangeOnWhichGeneratedY;
 	private List<Wizbit> allWizbits = new List<Wizbit>();
 	private List<Mana> allMana = new List<Mana>();
 	public PackedScene WizbitScene;
@@ -21,7 +22,7 @@ public partial class test : Node2D
 		for (int i = 0; i < SimulationParameters.initialNoMana; i++)
 		{
 			Mana instance = ManaScene.Instantiate<Mana>();
-			instance.Position = GetRandomPosition(maxSize, rng);
+			instance.Position = GetRandomPosition(rng);
 			AddChild(instance);
 			allMana.Add(instance);
 		}
@@ -30,7 +31,7 @@ public partial class test : Node2D
 		for (int i = 0; i < SimulationParameters.initialNoWizbits; i++)
 		{
 			Wizbit instance2 = WizbitScene.Instantiate<Wizbit>();
-			instance2.Position = GetRandomPosition(maxSize, rng);
+			instance2.Position = GetRandomPosition(rng);
 			//GD.Print(instance2.neuralNetwork.inputNeuronCount);
 			AddChild(instance2);
 			allWizbits.Add(instance2);
@@ -44,11 +45,11 @@ public partial class test : Node2D
 		//ReplenishWizbits(5);
 	}
 	
-	public Vector2 GetRandomPosition(int maxSize, RandomNumberGenerator rng)
+	public Vector2 GetRandomPosition(RandomNumberGenerator rng)
 	{
 		Random random = new Random();
-		int x = rng.RandiRange(-maxSize, maxSize);
-		int y = rng.RandiRange(-maxSize, maxSize);
+		int x = rng.RandiRange(0, maxSizeX);
+		int y = rng.RandiRange(0, maxSizeY);
 		return new Vector2(x, y);
 	}
 	
@@ -61,7 +62,7 @@ public partial class test : Node2D
 		if (SimulationParameters.crtNoMana < threshold)
 		{
 			Mana instance = ManaScene.Instantiate<Mana>();
-			instance.Position = GetRandomPosition(maxSize, rng);
+			instance.Position = GetRandomPosition(rng);
 			AddChild(instance);
 			//GD.Print("replenished mana by 1");
 			SimulationParameters.crtNoMana++;
@@ -77,7 +78,7 @@ public partial class test : Node2D
 		if (SimulationParameters.crtNoWizbits < threshold)
 		{
 			var instance = WizbitScene.Instantiate<Wizbit>();
-			instance.Position = GetRandomPosition(maxSize, rng);
+			instance.Position = GetRandomPosition(rng);
 			AddChild(instance);
 		}
 	}

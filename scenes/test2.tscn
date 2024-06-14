@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgimkn7m5w0wf"]
+[gd_scene load_steps=11 format=3 uid="uid://dgimkn7m5w0wf"]
 
 [ext_resource type="Script" path="res://scenes/test.cs" id="1_0ask7"]
 [ext_resource type="Texture2D" uid="uid://chxscqjimneuv" path="res://frames/background_tile.png" id="2_xt43m"]
@@ -8,11 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://08q5lkio71xe" path="res://wall_left.tscn" id="6_vwca8"]
 [ext_resource type="PackedScene" uid="uid://b3wmyv8o1q8l1" path="res://wall_right.tscn" id="7_0h66e"]
 [ext_resource type="PackedScene" uid="uid://gcv53gdugirf" path="res://wall_down.tscn" id="8_j6pea"]
+[ext_resource type="Script" path="res://scripts/Camera2D.cs" id="9_co2m6"]
+[ext_resource type="PackedScene" uid="uid://chng1o38m6b33" path="res://world_generator.tscn" id="9_u8ntc"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_0ask7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 offset_left = -2492.0
 offset_top = -1213.0
 offset_right = 2639.0
@@ -21,22 +24,26 @@ texture = ExtResource("2_xt43m")
 stretch_mode = 1
 
 [node name="Wizbit" parent="." instance=ExtResource("3_6sxcx")]
-position = Vector2(161, 143)
+position = Vector2(367, 421.739)
 
 [node name="Mana" parent="." instance=ExtResource("4_fnuu4")]
-position = Vector2(465, 195)
+position = Vector2(611, 362)
 
 [node name="WallUp" parent="." instance=ExtResource("5_d3pjb")]
-position = Vector2(-14, -38)
+position = Vector2(377, 247)
 
 [node name="WallLeft" parent="." instance=ExtResource("6_vwca8")]
-position = Vector2(-328, -274)
+position = Vector2(78, -2)
 
 [node name="WallRight" parent="." instance=ExtResource("7_0h66e")]
-position = Vector2(-402, -279)
+position = Vector2(8, -38)
 
 [node name="WallDown" parent="." instance=ExtResource("8_j6pea")]
-position = Vector2(-403, -237)
+position = Vector2(-9, 28)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(165, 50)
+position = Vector2(576, 325)
+script = ExtResource("9_co2m6")
+
+[node name="WorldGenerator" parent="." instance=ExtResource("9_u8ntc")]
+position = Vector2(-1102, -704)
