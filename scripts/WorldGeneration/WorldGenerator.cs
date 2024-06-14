@@ -6,10 +6,10 @@ public partial class WorldGenerator : Node2D
 {
 	static int height = 512;
 	static int width = 512;
-	private double[,] tempNoiseMap = new double[height, width];
-	private double[,] altNoiseMap = new double[height, width];
-	private double[,] vegNoiseMap = new double[height, width];
-	private int[,]  biomeMap = new int[height, width];
+	static public double[,] tempNoiseMap = new double[height, width];
+	static public double[,] altNoiseMap = new double[height, width];
+	static public double[,] vegNoiseMap = new double[height, width];
+	static public int[,]  biomeMap = new int[height, width];
 	
 	Dictionary<String, Biome> BiomeList = new Dictionary<String, Biome>();
 	Dictionary<String, Preset> WorldPresets = new Dictionary<String, Preset>();
@@ -143,7 +143,7 @@ public partial class WorldGenerator : Node2D
 		biomeListGen();
 		worldPresetsGen();
 		//generate map
-		generateWorld(WorldPresets["Normal"]);
+		generateWorld(WorldPresets["DesertedWorld"]);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

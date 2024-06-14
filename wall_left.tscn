@@ -1,8 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://08q5lkio71xe"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vvegy"]
-a = Vector2(-69, -5)
-b = Vector2(-66, 655)
+b = Vector2(0, 4096)
 
 [node name="WallLeft" type="StaticBody2D"]
 

@@ -65,6 +65,7 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		inputNeuronCount = genome.getInputNeuronCount();
 		outputNeuronCount = AI_Output.fieldCount;
 		hiddenNeuronCount = genome.getHiddenNeuronCount();
+		GD.Print("Generarea NN-ului: input: ", inputNeuronCount, " output: ", outputNeuronCount, " hidden: ", hiddenNeuronCount);
 		synapses = genome.getSynapsesCopy();
 
 		neurons = new Neuron[inputNeuronCount+outputNeuronCount+hiddenNeuronCount];

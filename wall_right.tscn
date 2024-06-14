@@ -1,11 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3wmyv8o1q8l1"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_hts5a"]
-a = Vector2(1125, -17)
-b = Vector2(1125, 678)
+a = Vector2(4096, 0)
+b = Vector2(4096, 4096)
 
 [node name="WallRight" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 0)
 shape = SubResource("SegmentShape2D_hts5a")

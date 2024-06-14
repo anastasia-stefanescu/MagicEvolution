@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://gcv53gdugirf"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rpqi1"]
-a = Vector2(-71, 607)
-b = Vector2(1207, 607)
+a = Vector2(4096, 4096)
+b = Vector2(0, 4096)
 
 [node name="WallDown" type="StaticBody2D"]
 

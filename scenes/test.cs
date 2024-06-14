@@ -47,8 +47,10 @@ public partial class test : Node2D
 	public Vector2 GetRandomPosition(int maxSize, RandomNumberGenerator rng)
 	{
 		Random random = new Random();
-		int x = rng.RandiRange(-maxSize, maxSize);
-		int y = rng.RandiRange(-maxSize, maxSize);
+		//int x = rng.RandiRange(-maxSize, maxSize);
+		//int y = rng.RandiRange(-maxSize, maxSize);
+		int x = rng.RandiRange(0, maxSize);
+		int y = rng.RandiRange(0, maxSize);
 		return new Vector2(x, y);
 	}
 	

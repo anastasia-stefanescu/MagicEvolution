@@ -8,6 +8,8 @@ public partial class Mana : Area2D
 		SimulationParameters.crtNoMana--;
 		//body.date_wizbit.manaFraction += SimulationStatistics.
 		//GD.Print(customBody.rotation);
+		Wizbit w = body as Wizbit;
+		w.addMana(SimulationParameters.ManaValue);
 		QueueFree();
 	}
 	
