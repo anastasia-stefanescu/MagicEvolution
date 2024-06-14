@@ -32,6 +32,8 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		neurons[3].stimulate(AI_Input.constant);
 		neurons[4].stimulate(input.random);
 		for(uint i=0; i<genome.getVisionNeuronCount(); i++) {
+			//GD.Print("vision neuron: ", i, " dist: ", aux.distance, " unghi:", aux.angle, " Mana:", aux.isMana, " Wizbit:", aux.isWizbit);
+			//GD.Print(input.visionData)
 			neurons[AI_Input.nonVisionDataFieldCount + i*VisionRayData.fieldCount + 0].stimulate(input.visionData.raysData[i].distance);
 			neurons[AI_Input.nonVisionDataFieldCount + i*VisionRayData.fieldCount + 1].stimulate(input.visionData.raysData[i].angle);
 			neurons[AI_Input.nonVisionDataFieldCount + i*VisionRayData.fieldCount + 2].stimulate(input.visionData.raysData[i].isMana);
@@ -65,6 +67,7 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		inputNeuronCount = genome.getInputNeuronCount();
 		outputNeuronCount = AI_Output.fieldCount;
 		hiddenNeuronCount = genome.getHiddenNeuronCount();
+		GD.Print("Generarea NN-ului: input: ", inputNeuronCount, " output: ", outputNeuronCount, " hidden: ", hiddenNeuronCount);
 		synapses = genome.getSynapsesCopy();
 
 		neurons = new Neuron[inputNeuronCount+outputNeuronCount+hiddenNeuronCount];

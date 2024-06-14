@@ -2,8 +2,8 @@ using Godot;
 using System;
 
 public abstract partial class ManaConsumer : Godot.Node2D {
-	protected double constantCost = SimulationParameters.WizbitStatsParameters.constantCost;
-	protected double useCost = SimulationParameters.WizbitStatsParameters.useCost;
+	protected double constantCost;
+	protected double useCost;
 
 	public double getConstantCost() { return constantCost; }
 

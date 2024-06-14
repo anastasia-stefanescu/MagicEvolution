@@ -4,13 +4,14 @@ using System.ComponentModel.DataAnnotations;
 
 public static class SimulationParameters {
 	
-	public static double rangeOnWhichGenerated = 200;
-	public static double initialNoWizbits = 5;
+	public static double rangeOnWhichGenerated = 300;
+	public static double initialNoWizbits = 8;
 	public static double initialNoMana = 20;
 	public static double crtNoWizbits = initialNoWizbits;
 	public static double crtNoMana = initialNoMana;
+	public static double ManaValue = 10;
 	public static class WizbitStatsParameters {
-		public static double constantCost = 0.05;
+		public static double constantCost = 0.01;
 		public static double useCost = 5;
 		public static class MutationChances {
 			public static double maxHp=0.05;

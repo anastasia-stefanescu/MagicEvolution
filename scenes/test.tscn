@@ -11,13 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://gcv53gdugirf" path="res://wall_down.tscn" id="8_fkoha"]
 
 [node name="Test" type="Node2D"]
+position = Vector2(209, 4)
 script = ExtResource("1_ykmdt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -13391.0
-offset_top = -7550.0
-offset_right = 13195.0
-offset_bottom = 7593.0
+offset_left = -13538.0
+offset_top = -7560.0
+offset_right = 13048.0
+offset_bottom = 7583.0
 texture = ExtResource("2_cnwad")
 stretch_mode = 1
 
@@ -48,10 +49,10 @@ script = ExtResource("1_7m7nn")
 position = Vector2(-432, -163)
 
 [node name="WallLeft" parent="." instance=ExtResource("6_ol3uk")]
-position = Vector2(-801, -393)
+position = Vector2(-774, -382)
 
 [node name="WallRight" parent="." instance=ExtResource("7_nn20m")]
-position = Vector2(-835, -398)
+position = Vector2(-848, -380)
 
 [node name="WallDown" parent="." instance=ExtResource("8_fkoha")]
 position = Vector2(-830, -374)

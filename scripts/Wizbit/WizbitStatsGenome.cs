@@ -35,7 +35,7 @@ public class WizbitStatsGenome : IGenome
 			mutateMaxSpeed();
 	}
 
-	public IGenome clone(){
+	public IGenome clone(){ 
 		return new WizbitStatsGenome(maxMana, maxHp, maxMovementSpeed);
 	}
 	

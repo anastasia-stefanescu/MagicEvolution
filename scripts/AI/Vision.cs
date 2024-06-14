@@ -40,10 +40,12 @@ public partial class Vision : Godot.Node2D {
 			// set identification fields
 			if(rayNodes[i].IsColliding()) {
 				if( rayNodes[i].GetCollider() as Wizbit != null ) { // is wizbit check
+					//GD.Print("Vision a vazut wizbit");
 					data.raysData[i].isWizbit=1;
 					data.raysData[i].isMana=0;
 				}
 				else if( rayNodes[i].GetCollider() as Mana != null) { // is mana check
+					//GD.Print("Vision a vazut mana");
 					data.raysData[i].isWizbit=0;
 					data.raysData[i].isMana=1;
 				}

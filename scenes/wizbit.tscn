@@ -11,8 +11,12 @@ scale = Vector2(0.25, 0.25)
 script = ExtResource("1_dyog5")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -35.0
+offset_top = -54.0
+offset_right = 27.0
+offset_bottom = -31.0
+text = "
+"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_el7jh")
