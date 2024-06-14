@@ -7,7 +7,6 @@
 radius = 25.1794
 
 [node name="Wizbit" type="CharacterBody2D"]
-scale = Vector2(0.25, 0.25)
 script = ExtResource("1_dyog5")
 
 [node name="Label" type="Label" parent="."]

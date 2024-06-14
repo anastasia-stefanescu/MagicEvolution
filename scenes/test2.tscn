@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgimkn7m5w0wf"]
+
+[ext_resource type="Script" path="res://scenes/test.cs" id="1_0ask7"]
+[ext_resource type="Texture2D" uid="uid://chxscqjimneuv" path="res://frames/background_tile.png" id="2_xt43m"]
+[ext_resource type="PackedScene" uid="uid://ctabwllchhe51" path="res://scenes/wizbit.tscn" id="3_6sxcx"]
+[ext_resource type="PackedScene" uid="uid://dkxjsnkkk8l27" path="res://scenes/mana.tscn" id="4_fnuu4"]
+[ext_resource type="PackedScene" uid="uid://m26twuwx2q4n" path="res://wall_up.tscn" id="5_d3pjb"]
+[ext_resource type="PackedScene" uid="uid://08q5lkio71xe" path="res://wall_left.tscn" id="6_vwca8"]
+[ext_resource type="PackedScene" uid="uid://b3wmyv8o1q8l1" path="res://wall_right.tscn" id="7_0h66e"]
+[ext_resource type="PackedScene" uid="uid://gcv53gdugirf" path="res://wall_down.tscn" id="8_j6pea"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_0ask7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2492.0
+offset_top = -1213.0
+offset_right = 2639.0
+offset_bottom = 1818.0
+texture = ExtResource("2_xt43m")
+stretch_mode = 1
+
+[node name="Wizbit" parent="." instance=ExtResource("3_6sxcx")]
+position = Vector2(161, 143)
+
+[node name="Mana" parent="." instance=ExtResource("4_fnuu4")]
+position = Vector2(465, 195)
+
+[node name="WallUp" parent="." instance=ExtResource("5_d3pjb")]
+position = Vector2(-14, -38)
+
+[node name="WallLeft" parent="." instance=ExtResource("6_vwca8")]
+position = Vector2(-328, -274)
+
+[node name="WallRight" parent="." instance=ExtResource("7_0h66e")]
+position = Vector2(-402, -279)
+
+[node name="WallDown" parent="." instance=ExtResource("8_j6pea")]
+position = Vector2(-403, -237)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(165, 50)
