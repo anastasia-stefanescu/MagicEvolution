@@ -7,9 +7,9 @@ public static class SimulationParameters {
 	//public static double rangeOnWhichGenerated = 200;
 	public static double rangeOnWhichGenerated = 4096;
 	//public static double initialNoWizbits = 5;
-	public static double initialNoWizbits = 20;
+	public static double initialNoWizbits = 50;
 	//public static double initialNoMana = 20;
-	public static double initialNoMana = 300;
+	public static double initialNoMana = 400;
 	public static double crtNoWizbits = initialNoWizbits;
 	public static double crtNoMana = initialNoMana;
 	public static double ManaValue = 10;

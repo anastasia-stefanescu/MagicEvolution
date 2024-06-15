@@ -143,7 +143,7 @@ public partial class WorldGenerator : Node2D
 		biomeListGen();
 		worldPresetsGen();
 		//generate map
-		generateWorld(WorldPresets["DesertedWorld"]);
+		generateWorld(WorldPresets["Normal"]);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

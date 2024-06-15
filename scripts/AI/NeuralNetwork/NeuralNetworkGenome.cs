@@ -51,42 +51,42 @@ public class NeuralNetworkGenome : IGenome {
 		// roll for synapse creation
 		if(rng.RandfRange(0, 1) < SimulationParameters.AIParameters.MutationChances.createSynapse)
 		{
-			GD.Print("creeaza sinapsa");
+			//GD.Print("creeaza sinapsa");
 			mutate_createSynapse();
 		}
 
 		// roll for synapse modification
 		if(rng.RandfRange(0, 1) < SimulationParameters.AIParameters.MutationChances.modifySynapse)
 		{
-			GD.Print("modif sinapsa");
+			//GD.Print("modif sinapsa");
 			mutate_modifySynapse();
 		}
 
 		// roll for synapse evolution	
 		if(rng.RandfRange(0, 1) < SimulationParameters.AIParameters.MutationChances.evolveSynapse)
 		{
-			GD.Print("evolueaza sinapsa");
+			//GD.Print("evolueaza sinapsa");
 			mutate_evolveSynapse();
 		}
 
 		// roll for synapse removal
 		if(rng.RandfRange(0, 1) < SimulationParameters.AIParameters.MutationChances.removeSynapse)
 		{
-			GD.Print("sterge sinapsa");
+			//GD.Print("sterge sinapsa");
 			mutate_removeSynapse();
 		}
 
 		// roll for (hidden) neuron modification
 		if(rng.RandfRange(0, 1) < SimulationParameters.AIParameters.MutationChances.modifyNeuron)
 		{
-			GD.Print("modif neuron hidden");
+			//GD.Print("modif neuron hidden");
 			mutate_modifyNeuron();
 		}
 
 		// roll for (hidden) neuron deletion 
 		if(rng.RandfRange(0, 1) < SimulationParameters.AIParameters.MutationChances.removeNeuron)
 		{
-			GD.Print("sterge neuron hidden");
+			//GD.Print("sterge neuron hidden");
 			mutate_removeNeuron();
 		}
 	}

@@ -65,7 +65,7 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		inputNeuronCount = genome.getInputNeuronCount();
 		outputNeuronCount = AI_Output.fieldCount;
 		hiddenNeuronCount = genome.getHiddenNeuronCount();
-		GD.Print("Generarea NN-ului: input: ", inputNeuronCount, " output: ", outputNeuronCount, " hidden: ", hiddenNeuronCount);
+		//GD.Print("Generarea NN-ului: input: ", inputNeuronCount, " output: ", outputNeuronCount, " hidden: ", hiddenNeuronCount);
 		synapses = genome.getSynapsesCopy();
 
 		neurons = new Neuron[inputNeuronCount+outputNeuronCount+hiddenNeuronCount];
@@ -100,6 +100,10 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		if(visionNode == null)
 			throw new AppException("Error in AI: visionNode is null. Make sure the vision node was constructed before call (preferably in child class' constructor and/or in its _enter_tree function).");
 		return visionNode.getVisionData();
+	}
+	
+	public Vision getVision_to_reuse(){
+		return visionNode;
 	}
 
 	public override void calculateCosts() {
