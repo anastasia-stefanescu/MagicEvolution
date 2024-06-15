@@ -80,6 +80,15 @@ public partial class Vision : Godot.Node2D {
 		generate();
 	}
 
+	public uint getRayCount(){
+		return rayCount;
+	}
+
+	public RayCast2D[] getRays(){
+		return rayNodes;
+	}
+
+
 	private void initRaycastNodes() {
 		if(rayCount==0||rayNodes!=null)
 			return;

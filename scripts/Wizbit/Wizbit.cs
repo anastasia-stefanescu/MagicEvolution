@@ -51,6 +51,9 @@ public partial class Wizbit : CharacterBody2D
 		this.currentHp -= val;
 	}
 
+	public double getCurrentHp(){
+		return currentHp;
+	}
 	public Wizbit(WizbitStatsGenome stats, NeuralNetworkGenome nnGenome)
 	{
 		this.stats = new WizbitStats(stats);
@@ -97,17 +100,22 @@ public partial class Wizbit : CharacterBody2D
 
 	public void cast_spell()
 	{
-		RayCast2D ray_fata;
+		//mai verifica o data ce vede wizbit 
 
-		if(ray_fata.IsColliding()) {
-			if( ray_fata.GetCollider() as Wizbit != null ) {
-				Wizbit w2 = ray_fata.GetCollider() as Wizbit;
-				this.currentHp -= 0.15 * this.stats.getMaxHp();
-				w2.decreaseHp(0.75 * w2.stats.getMaxHp());
-
-				//aici sa apara un efect pe ecran
+		Vision v = this.neuralNetwork.getVision_to_reuse();
+		uint rc = v.getRayCount();
+		RayCast2D[] rays = v.getRays();
+		for (int i = 0; i< rc; i++)
+			if(rays[i].IsColliding()) {
+				if(rays[i].GetCollider() as Wizbit != null ) { 
+					Wizbit w2 = rays[i].GetCollider() as Wizbit;
+					GD.Print("Wizbit avea: ", w2.getCurrentHp());
+					w2.decreaseHp(0.75 * w2.stats.getMaxHp());
+					this.decreaseHp(0.15 * this.stats.getMaxHp());
+					GD.Print("A fost atacat, mai are: ", w2.getCurrentHp());
+					//trb spawnat un obiect 'efect vraja' care are durata de viata de cateva frameuri de la spawnare
+				} 
 			}
-		}
 	}
 	
 	public void mutate() {
@@ -125,7 +133,7 @@ public partial class Wizbit : CharacterBody2D
 
 		if (ai_output.reproduce > 0.5)
 		{
-			GD.Print(this.id, " trebuie sa se reproduca, are : " , this.currentMana, ", ", this.stats.getMaxMana());
+			//GD.Print(this.id, " trebuie sa se reproduca, are : " , this.currentMana, ", ", this.stats.getMaxMana());
 			if (this.currentMana >= 0.75 * this.stats.getMaxMana())
 			{
 				this.currentMana -= 0.75 * this.stats.getMaxMana();
@@ -146,14 +154,28 @@ public partial class Wizbit : CharacterBody2D
 	{
 		//descrestem mana
 		this.currentMana -= this.stats.getConstantCost(); 
-		if (this.currentMana <= 0)
+		if (this.currentHp <= this.stats.getMaxHp() - this.stats.getConstantCost())
+			this.currentHp += this.stats.getConstantCost(); 
+		if (this.currentMana <= 0 || this.currentHp <= 0)
 		{
+			if (this.currentHp <= 0 && this.currentMana > 0)
+			{
+				PackedScene ManaScene = GD.Load<PackedScene>("res://scenes/mana.tscn");
+				int cate_mane = (int)(this.currentMana / SimulationParameters.ManaValue);
+				for (int i = 0; i < cate_mane; i++)
+				{
+					Mana instance = ManaScene.Instantiate<Mana>();
+					instance.Position = this.Position;
+					GetTree().Root.CallDeferred("add_child", instance);
+				}
+
+			} 
 			QueueFree();
 		}
-			
-		
+		//cast_spell();
+
 		AI_Output ai_output = apply_AI_Output();
-		GD.Print("Wizbit ", id, ": ", ai_output.moveX, ", ", ai_output.moveY, ", ", ai_output.rotate, ", ", ai_output.reproduce);
+		//GD.Print("Wizbit ", id, ": ", ai_output.moveX, ", ", ai_output.moveY, ", ", ai_output.rotate, ", ", ai_output.reproduce);
 		
 		Vector2 movement = new Vector2((float)ai_output.moveX, (float)ai_output.moveY) * (float)stats.getMaxMovementSpeed();
 
