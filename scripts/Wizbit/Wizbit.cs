@@ -184,7 +184,7 @@ public partial class Wizbit : CharacterBody2D
 			} 
 			QueueFree();
 		}
-		cast_spell();
+		//cast_spell();
 
 		AI_Output ai_output = apply_AI_Output();
 		//GD.Print("Wizbit ", id, ": ", ai_output.moveX, ", ", ai_output.moveY, ", ", ai_output.rotate, ", ", ai_output.reproduce);
