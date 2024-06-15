@@ -105,17 +105,29 @@ public partial class Wizbit : CharacterBody2D
 		Vision v = this.neuralNetwork.getVision_to_reuse();
 		uint rc = v.getRayCount();
 		RayCast2D[] rays = v.getRays();
+		Wizbit w = null;
+		float minim = 1000000000;
 		for (int i = 0; i< rc; i++)
 			if(rays[i].IsColliding()) {
 				if(rays[i].GetCollider() as Wizbit != null ) { 
 					Wizbit w2 = rays[i].GetCollider() as Wizbit;
-					GD.Print("Wizbit avea: ", w2.getCurrentHp());
-					w2.decreaseHp(0.75 * w2.stats.getMaxHp());
-					this.decreaseHp(0.15 * this.stats.getMaxHp());
-					GD.Print("A fost atacat, mai are: ", w2.getCurrentHp());
-					//trb spawnat un obiect 'efect vraja' care are durata de viata de cateva frameuri de la spawnare
+					Vector2 punct_coliziune = rays[i].GetCollisionPoint();
+					float dist = this.Position.DistanceTo(punct_coliziune);
+					if (minim > dist)
+					{
+						minim = dist;
+						w = w2;
+					}
 				} 
 			}
+		if (w!= null)
+		{
+			GD.Print("Wizbit avea: ", w.getCurrentHp());
+			w.decreaseHp(0.75 * w.stats.getMaxHp());
+			this.decreaseHp(0.15 * this.stats.getMaxHp());
+			GD.Print("A fost atacat, mai are: ", w.getCurrentHp());
+			//trb spawnat un obiect 'efect vraja' care are durata de viata de cateva frameuri de la spawnare
+		}
 	}
 	
 	public void mutate() {
@@ -172,7 +184,7 @@ public partial class Wizbit : CharacterBody2D
 			} 
 			QueueFree();
 		}
-		//cast_spell();
+		cast_spell();
 
 		AI_Output ai_output = apply_AI_Output();
 		//GD.Print("Wizbit ", id, ": ", ai_output.moveX, ", ", ai_output.moveY, ", ", ai_output.rotate, ", ", ai_output.reproduce);
