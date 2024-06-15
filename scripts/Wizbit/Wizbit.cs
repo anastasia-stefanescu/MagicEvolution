@@ -47,6 +47,10 @@ public partial class Wizbit : CharacterBody2D
 		this.currentMana += val;
 	}
 
+	public void decreaseHp(double val){
+		this.currentHp -= val;
+	}
+
 	public Wizbit(WizbitStatsGenome stats, NeuralNetworkGenome nnGenome)
 	{
 		this.stats = new WizbitStats(stats);
@@ -67,11 +71,11 @@ public partial class Wizbit : CharacterBody2D
 
 		ai_input.visionData = this.neuralNetwork.getVisionData().clone();
 
-		GD.Print("Ai input: hp: ", ai_input.hpFraction, ", mana: ", ai_input.manaFraction, ", mvCost: ", ai_input.movementCost, ", random: ", ai_input.random);
-		GD.Print("Ai vision data: raycount: ", ai_input.visionData.rayCount);
-		for (int i= 0; i< ai_input.visionData.rayCount; i++)
-			GD.Print("   Ray ", i, " : dist: ", ai_input.visionData.raysData[i].distance, " angle: ", ai_input.visionData.raysData[i].angle, " isMana: ", ai_input.visionData.raysData[i].isMana, "isW: ", ai_input.visionData.raysData[i].isWizbit);
-		
+		//GD.Print("Ai input: hp: ", ai_input.hpFraction, ", mana: ", ai_input.manaFraction, ", mvCost: ", ai_input.movementCost, ", random: ", ai_input.random);
+		//GD.Print("Ai vision data: raycount: ", ai_input.visionData.rayCount);
+		//for (int i= 0; i< ai_input.visionData.rayCount; i++)
+			//GD.Print("   Ray ", i, " : dist: ", ai_input.visionData.raysData[i].distance, " angle: ", ai_input.visionData.raysData[i].angle, " isMana: ", ai_input.visionData.raysData[i].isMana, "isW: ", ai_input.visionData.raysData[i].isWizbit);
+		//
 		return ai_input;
 	}
 	
@@ -90,6 +94,21 @@ public partial class Wizbit : CharacterBody2D
 		GetTree().Root.CallDeferred("add_child", instance);
 		return instance;
 	}
+
+	public void cast_spell()
+	{
+		RayCast2D ray_fata;
+
+		if(ray_fata.IsColliding()) {
+			if( ray_fata.GetCollider() as Wizbit != null ) {
+				Wizbit w2 = ray_fata.GetCollider() as Wizbit;
+				this.currentHp -= 0.15 * this.stats.getMaxHp();
+				w2.decreaseHp(0.75 * w2.stats.getMaxHp());
+
+				//aici sa apara un efect pe ecran
+			}
+		}
+	}
 	
 	public void mutate() {
 		stats.mutate();
@@ -101,7 +120,8 @@ public partial class Wizbit : CharacterBody2D
 	
 	private  AI_Output apply_AI_Output()
 	{
-		AI_Output ai_output = neuralNetwork.run(this.construct_AI_input());
+		AI_Input ai_input = this.construct_AI_input();
+		AI_Output ai_output = neuralNetwork.run(ai_input);
 
 		if (ai_output.reproduce > 0.5)
 		{
@@ -113,10 +133,9 @@ public partial class Wizbit : CharacterBody2D
 			}
 		}
 
-		//aici va fi si pt vraji
-		// if (ai_output.cast_spell > 0.5 && this.currentHp >= 0.25 * this.stats.getMaxHp())
-		// {
-		// 	this.currentHp -= 0.25 * this.stats.getMaxHp()
+		// aici va fi si pt vraji
+		// if (ai_output.cast_spell > 0.5 && this.currentHp >= 0.15 * this.stats.getMaxMana())
+		// {	
 		// 	this.cast_spell();
 		// }
 
@@ -131,7 +150,8 @@ public partial class Wizbit : CharacterBody2D
 		{
 			QueueFree();
 		}
-
+			
+		
 		AI_Output ai_output = apply_AI_Output();
 		GD.Print("Wizbit ", id, ": ", ai_output.moveX, ", ", ai_output.moveY, ", ", ai_output.rotate, ", ", ai_output.reproduce);
 		
