@@ -50,6 +50,7 @@ public class WizbitStatsGenome : IGenome
 	}
 	
 	private void mutateMaxMana() {
+		GD.Print(" - maxMana");
 		var rng = new RandomNumberGenerator();
 		rng.Randomize();
 		float maxChange = (float)SimulationParameters.WizbitStatsParameters.MutationParameters.ManaMaxChange;
@@ -57,6 +58,7 @@ public class WizbitStatsGenome : IGenome
 	}
 	
 	private void mutateMaxHp() {
+		GD.Print(" - maxHp");
 		var rng = new RandomNumberGenerator();
 		rng.Randomize();
 		float maxChange = (float)SimulationParameters.WizbitStatsParameters.MutationParameters.HpMaxChange;
@@ -64,6 +66,7 @@ public class WizbitStatsGenome : IGenome
 	}
 	
 	private void mutateMaxSpeed() {
+		GD.Print(" - maxSpeed");
 		var rng = new RandomNumberGenerator();
 		rng.Randomize();
 		float maxChange = (float)SimulationParameters.WizbitStatsParameters.MutationParameters.SpeedMaxChange;
@@ -82,6 +85,7 @@ public class WizbitStatsGenome : IGenome
 	}
 	
 	private void mutateIdealTemp(double currentTemp) {
+		//GD.Print(" - ideal temperature");
 		var rng = new RandomNumberGenerator();
 		rng.Randomize();
 		float maxChange = (float)SimulationParameters.WizbitStatsParameters.MutationParameters.EnvMaxChangeMod;
@@ -89,6 +93,7 @@ public class WizbitStatsGenome : IGenome
 	}
 	
 	private void mutateIdealAlt(double currentAlt) {
+		//GD.Print(" - ideal altitude");
 		var rng = new RandomNumberGenerator();
 		rng.Randomize();
 		float maxChange = (float)SimulationParameters.WizbitStatsParameters.MutationParameters.EnvMaxChangeMod;
