@@ -49,6 +49,7 @@ public class WizbitStatsGenome : IGenome
 		return new WizbitStatsGenome(maxMana, maxHp, maxMovementSpeed);
 	}
 	
+	// mutatiile pt stats
 	private void mutateMaxMana() {
 		GD.Print(" - maxMana");
 		var rng = new RandomNumberGenerator();

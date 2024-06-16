@@ -9,9 +9,9 @@ public static class SimulationParameters {
 	//public static double initialNoWizbits = 5;
 	public static double initialNoWizbits = 50;
 	//public static double initialNoMana = 20;
-	public static double initialNoMana = 800;
-	public static double crtNoWizbits = initialNoWizbits;
-	public static double crtNoMana = initialNoMana;
+	public static double initialNoMana = 1500;
+	public static double crtNoWizbits = 0;
+	public static double crtNoMana = 0;
 	public static double ManaValue = 10;
 	public static class WizbitStatsParameters {
 		public static double constantCost = 0.01;

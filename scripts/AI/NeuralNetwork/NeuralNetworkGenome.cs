@@ -10,8 +10,9 @@ public class NeuralNetworkGenome : IGenome {
 	private Synapse[] synapses;
 	private NN_ActivationFunctionEnum[] hiddenActivationFunctions;
 
+	//se face mutatia VisionGenome, reajustam sinapsele(daca s-au sters sau adaugat neuroni din mutatiile anterioare)
+	//si alegem random ce noi mutatii se fac la nivelul sinapselor si neuronilor
 	public void mutate() {
-		//GD.Print("mutating NN Genome");
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
 
@@ -145,6 +146,7 @@ public class NeuralNetworkGenome : IGenome {
 
 	public VisionGenome getVisionGenomeCopy() { return (VisionGenome)visionGenome.clone(); }
 
+	//cream o noua sinapsa alegand random un loc unde se poate, adica doi neuroni care nu sunt conectati
 	private void mutate_createSynapse() {
 		uint inputNeuronCount=getInputNeuronCount();
 		uint outputNeuronCount=AI_Output.fieldCount;
@@ -176,6 +178,7 @@ public class NeuralNetworkGenome : IGenome {
 		synapses = synapses.Append(new Synapse(newSource, newDestination, weight)).ToArray();
 	}
 
+	//sinapsei i se poate schimba weight-ul asociat
 	private void mutate_modifySynapse() {
 		if(synapses.Length == 0)
 			return;
@@ -190,6 +193,7 @@ public class NeuralNetworkGenome : IGenome {
 		synapses[randIndex].weight = Mathf.Clamp(synapses[randIndex].weight, -maxAbsWeight, maxAbsWeight);
 	}
 
+	//o sinapsa evolueaza adaugandu-se inca un hidden neuron intre sursa si destinatia initiala (se desparte in 2)
 	private void mutate_evolveSynapse() {
 		if(synapses.Length == 0)
 			return;
@@ -222,6 +226,7 @@ public class NeuralNetworkGenome : IGenome {
 		synapses=newSynapses;
 	}
 
+	//alege random o noua functie de activare pt neuron
 	private void mutate_modifyNeuron() {
 		if(hiddenNeuronCount == 0)
 			return;

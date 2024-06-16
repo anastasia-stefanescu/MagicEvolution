@@ -52,6 +52,7 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		output.moveY = neurons[inputNeuronCount + 1].getOutput();
 		output.rotate = neurons[inputNeuronCount + 2].getOutput();
 		output.reproduce = neurons[inputNeuronCount + 3].getOutput();
+		output.cast_spell = neurons[inputNeuronCount + 4].getOutput();
 
 		return output;
 	}

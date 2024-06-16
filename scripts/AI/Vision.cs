@@ -9,6 +9,7 @@ public partial class Vision : Godot.Node2D {
 
 	private RayCast2D[] rayNodes;
 
+	// completam cu ce se vede din RayNodes un VisionData cu: distanta si unghiul la care vede ceva, si daca ce vede e Wizbit sau Mana
 	public VisionData getVisionData() {
 		if(rayCount==0)
 			return new VisionData(0);
@@ -86,6 +87,7 @@ public partial class Vision : Godot.Node2D {
 		return rayNodes;
 	}
 
+	//initializam RayCast2D-urile unghiul de la care incepe range-ul de viziune, distanta pe care pot vedea, si sa poata vedea si Mana
 	private void initRaycastNodes() {
 		if(rayCount==0||rayNodes!=null)
 			return;
