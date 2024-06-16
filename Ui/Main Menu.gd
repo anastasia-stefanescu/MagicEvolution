@@ -21,7 +21,7 @@ func toggle_menu():
 	$Menu.show()
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://scenes/test2.tscn")
+	get_tree().change_scene_to_file("res://scenes/test.tscn")
 
 func _on_check_button_pressed():
 	pass # Replace with function body.

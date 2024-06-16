@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://y2vtta8qngul"]
+[gd_scene load_steps=13 format=3 uid="uid://y2vtta8qngul"]
 
 [ext_resource type="Script" path="res://scenes/test.cs" id="1_lxn2r"]
 [ext_resource type="Script" path="res://scripts/Camera2D.cs" id="2_cjm3d"]
@@ -10,9 +10,49 @@
 [ext_resource type="PackedScene" uid="uid://b3wmyv8o1q8l1" path="res://wall_right.tscn" id="7_nn20m"]
 [ext_resource type="PackedScene" uid="uid://gcv53gdugirf" path="res://wall_down.tscn" id="8_fkoha"]
 [ext_resource type="PackedScene" uid="uid://chng1o38m6b33" path="res://world_generator.tscn" id="10_wyum0"]
+[ext_resource type="Script" path="res://Ui/WizStats.cs" id="11_f662s"]
+[ext_resource type="PackedScene" uid="uid://bvxkohvchoio8" path="res://scenes/StatsMenu.tscn" id="11_mudjs"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_lxn2r")
+
+[node name="WizStats" type="Window" parent="."]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+gui_snap_controls_to_pixels = false
+gui_embed_subwindows = true
+title = "Stats Menu"
+position = Vector2i(0, 36)
+size = Vector2i(480, 270)
+max_size = Vector2i(640, 360)
+content_scale_size = Vector2i(1152, 648)
+content_scale_mode = 2
+content_scale_aspect = 1
+content_scale_stretch = 1
+script = ExtResource("11_f662s")
+
+[node name="StatsMenu" parent="WizStats" instance=ExtResource("11_mudjs")]
+modulate = Color(1, 1, 1, 0.498039)
+self_modulate = Color(1, 1, 1, 0.498039)
+z_index = 10
+layout_direction = 1
+
+[node name="Close" type="Button" parent="WizStats"]
+z_index = 100
+z_as_relative = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -118.0
+offset_right = 129.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Close Menu"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -13391.0
@@ -33,12 +73,15 @@ script = ExtResource("2_cjm3d")
 [node name="WorldGenerator" parent="." instance=ExtResource("10_wyum0")]
 
 [node name="Mana" parent="." instance=ExtResource("3_y3swa")]
+z_index = 1
 position = Vector2(1024, 1024)
 
 [node name="Wizbit" parent="." instance=ExtResource("4_3rmgh")]
+z_index = 2
 position = Vector2(1000, 1000)
 
 [node name="Wizbit2" parent="." instance=ExtResource("4_3rmgh")]
+z_index = 2
 position = Vector2(1100, 1100)
 rotation = -2.20281
 
@@ -49,3 +92,5 @@ rotation = -2.20281
 [node name="WallRight" parent="." instance=ExtResource("7_nn20m")]
 
 [node name="WallDown" parent="." instance=ExtResource("8_fkoha")]
+
+[connection signal="pressed" from="WizStats/Close" to="WizStats" method="_on_close_pressed"]

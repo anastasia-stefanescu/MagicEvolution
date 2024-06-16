@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnnudec7xiftc"]
+[gd_scene load_steps=9 format=3 uid="uid://bnnudec7xiftc"]
 
 [ext_resource type="Texture2D" uid="uid://dkqn7m2arkpq0" path="res://Ui/background.jpg" id="1_4gors"]
 [ext_resource type="Script" path="res://Ui/Main Menu.gd" id="1_8dbbm"]
 [ext_resource type="Texture2D" uid="uid://b5c5gnyhf2hxf" path="res://Ui/menu.jpg" id="2_5j16d"]
+[ext_resource type="Script" path="res://scenes/Biome.cs" id="4_805hl"]
 [ext_resource type="Texture2D" uid="uid://b7guy4wh5uqxj" path="res://Ui/background_text.png" id="4_875h0"]
 
 [sub_resource type="GDScript" id="GDScript_n3au2"]
@@ -54,7 +55,6 @@ scale = Vector2(1.19792, 0.982759)
 texture = ExtResource("1_4gors")
 
 [node name="Menu" type="NinePatchRect" parent="Main Menu"]
-visible = false
 top_level = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
@@ -78,8 +78,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -132.0
 offset_top = -170.5
-offset_right = 129.0
-offset_bottom = 195.5
+offset_right = 128.0
+offset_bottom = -30.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -92,14 +92,6 @@ text = "START
 modulate = Color(0.329764, 0.525037, 1, 1)
 layout_mode = 2
 button_pressed = true
-text = "Disable AI
-"
-
-[node name="CheckButton2" type="CheckButton" parent="Main Menu/Menu/Buttons"]
-modulate = Color(0, 1, 1, 1)
-layout_mode = 2
-button_pressed = true
-keep_pressed_outside = true
 text = "Disable AI
 "
 
@@ -118,7 +110,18 @@ button_pressed = true
 text = "Disable AI
 "
 
+[node name="BiomeMenu" type="OptionButton" parent="Main Menu/Menu"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+offset_left = 43.0
+offset_top = 212.0
+offset_right = 287.0
+offset_bottom = 254.0
+theme_override_font_sizes/font_size = 0
+script = ExtResource("4_805hl")
+
 [node name="PressKey" type="NinePatchRect" parent="Main Menu"]
+visible = false
 layout_mode = 1
 offset_left = 418.0
 offset_top = 324.0
@@ -157,6 +160,5 @@ libraries = {
 
 [connection signal="pressed" from="Main Menu/Menu/Buttons/Start" to="Main Menu" method="_on_start_pressed"]
 [connection signal="pressed" from="Main Menu/Menu/Buttons/CheckButton" to="Main Menu/Menu" method="_on_check_button_pressed"]
-[connection signal="pressed" from="Main Menu/Menu/Buttons/CheckButton2" to="Main Menu/Menu" method="_on_check_button_2_pressed"]
 [connection signal="pressed" from="Main Menu/Menu/Buttons/CheckButton3" to="Main Menu/Menu" method="_on_check_button_3_pressed"]
 [connection signal="pressed" from="Main Menu/Menu/Buttons/CheckButton4" to="Main Menu/Menu" method="_on_check_button_4_pressed"]

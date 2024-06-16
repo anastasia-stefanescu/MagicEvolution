@@ -19,10 +19,8 @@ self_modulate = Color(1, 1, 1, 0.498039)
 top_level = true
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.395
-anchor_bottom = 0.687
-offset_right = -0.0400085
-offset_bottom = -0.176025
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource("1_xdsap")
 patch_margin_left = 3
 patch_margin_top = 3
@@ -31,100 +29,95 @@ patch_margin_bottom = 3
 
 [node name="Campuri" type="VBoxContainer" parent="Text"]
 layout_mode = 1
-offset_left = 16.0
-offset_top = 32.0
-offset_right = 273.0
-offset_bottom = 368.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -522.0
+offset_top = -274.0
+offset_right = 369.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Id" type="RichTextLabel" parent="Text/Campuri"]
+[node name="Id_title" type="RichTextLabel" parent="Text/Campuri"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "abc
-"
+text = "   Wizbit ID:"
 
-[node name="Hp" type="RichTextLabel" parent="Text/Campuri"]
+[node name="Hp_title" type="RichTextLabel" parent="Text/Campuri"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
-text = "abc
-"
+theme_override_font_sizes/normal_font_size = 50
+text = "   Health:"
 
-[node name="Mana" type="RichTextLabel" parent="Text/Campuri"]
+[node name="Mana_title" type="RichTextLabel" parent="Text/Campuri"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
-text = "abc
-"
+theme_override_font_sizes/normal_font_size = 50
+text = "   Mana:"
 
-[node name="Generation" type="RichTextLabel" parent="Text/Campuri"]
+[node name="Generation_title" type="RichTextLabel" parent="Text/Campuri"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
-text = "abc
-"
+theme_override_font_sizes/normal_font_size = 50
+text = "   Generation:"
 
-[node name="Neuron" type="RichTextLabel" parent="Text/Campuri"]
+[node name="Neuron_title" type="RichTextLabel" parent="Text/Campuri"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
-text = "abc
-"
+theme_override_font_sizes/normal_font_size = 50
+text = "   Neuron Count:"
 
 [node name="Valori" type="VBoxContainer" parent="Text"]
 layout_mode = 1
-offset_left = 270.0
-offset_top = 32.0
-offset_right = 432.0
-offset_bottom = 368.0
-
-[node name="Label" type="RichTextLabel" parent="Text/Valori"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[center]1"
-
-[node name="Label2" type="RichTextLabel" parent="Text/Valori"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[center]1"
-
-[node name="Label3" type="RichTextLabel" parent="Text/Valori"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[center]1"
-
-[node name="Label4" type="RichTextLabel" parent="Text/Valori"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[center]1"
-
-[node name="Label5" type="RichTextLabel" parent="Text/Valori"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "[center]1"
-
-[node name="Button" type="Button" parent="Text"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 130.0
-offset_top = 368.0
-offset_right = -141.0
-offset_bottom = -27.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -274.0
+offset_right = 509.0
+offset_bottom = 215.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Close Menu"
+
+[node name="Id" type="RichTextLabel" parent="Text/Valori"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Hp" type="RichTextLabel" parent="Text/Valori"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Mana" type="RichTextLabel" parent="Text/Valori"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Gen" type="RichTextLabel" parent="Text/Valori"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Neuron" type="RichTextLabel" parent="Text/Valori"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]1"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
