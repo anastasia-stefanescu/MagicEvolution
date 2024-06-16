@@ -17,6 +17,10 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		this.genome=(NeuralNetworkGenome)genome.clone();
 		generate();
 	}
+	
+	public uint getInputNeuronCount(){
+		return inputNeuronCount;
+	}
 
 	public override void _EnterTree() {
 		base._EnterTree();

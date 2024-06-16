@@ -7,7 +7,7 @@ public static class SimulationParameters {
 	//public static double rangeOnWhichGenerated = 200;
 	public static double rangeOnWhichGenerated = 4096;
 	//public static double initialNoWizbits = 5;
-	public static double initialNoWizbits = 50;
+	public static double initialNoWizbits = 100;
 	//public static double initialNoMana = 20;
 	public static double initialNoMana = 1500;
 	public static double crtNoWizbits = 0;

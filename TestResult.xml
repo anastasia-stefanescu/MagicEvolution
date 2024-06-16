@@ -1,61 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" name="System.Private.CoreLib.dll" fullname="C:/Program Files/dotnet/shared/Microsoft.NETCore.App/8.0.0/System.Private.CoreLib.dll" testcasecount="4" result="Failed" start-time="2024-06-16T14:29:17.2768438Z" end-time="2024-06-16T14:29:17.7064251Z" duration="0.429552" total="4" passed="3" failed="1" inconclusive="0" skipped="0" warnings="0" asserts="20" random-seed="1129157923">
-  <command-line><![CDATA["C:\Users\Anghel Fabian\Desktop\Godot_v4.2.1-stable_mono_win64\Godot_v4.2.1-stable_mono_win64.exe" --path D:/Faculta/Anul%202%20Semestrul%202/Metode%20de%20Dezvoltare%20Software/MagicEvolutionMerge/MagicEvolution --remote-debug tcp://127.0.0.1:6007 --editor-pid 33168 --position 384,192 res://scenes/testRunner.tscn]]></command-line>
+<test-run id="2" name="System.Private.CoreLib.dll" fullname="C:/Program Files/dotnet/shared/Microsoft.NETCore.App/8.0.0/System.Private.CoreLib.dll" testcasecount="4" result="Passed" start-time="2024-06-16T16:54:27.1176198Z" end-time="2024-06-16T16:54:27.7400035Z" duration="0.622283" total="4" passed="4" failed="0" inconclusive="0" skipped="0" warnings="0" asserts="1018" random-seed="1449245858">
+  <command-line><![CDATA["C:\Users\Anghel Fabian\Desktop\Godot_v4.2.1-stable_mono_win64\Godot_v4.2.1-stable_mono_win64.exe" --path D:/Faculta/Anul%202%20Semestrul%202/Metode%20de%20Dezvoltare%20Software/MagicEvolutionMerge/MagicEvolution --remote-debug tcp://127.0.0.1:6007 --editor-pid 26324 --position 384,192 res://scenes/testRunner.tscn]]></command-line>
   <filter />
-  <test-suite type="Assembly" id="1006" name="System.Private.CoreLib.dll" fullname="C:/Program Files/dotnet/shared/Microsoft.NETCore.App/8.0.0/System.Private.CoreLib.dll" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2024-06-16T14:29:17.2768438Z" end-time="2024-06-16T14:29:17.7064251Z" duration="0.429552" total="4" passed="3" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="20">
+  <test-suite type="Assembly" id="1006" name="System.Private.CoreLib.dll" fullname="C:/Program Files/dotnet/shared/Microsoft.NETCore.App/8.0.0/System.Private.CoreLib.dll" runstate="Runnable" testcasecount="4" result="Passed" start-time="2024-06-16T16:54:27.1176198Z" end-time="2024-06-16T16:54:27.7400035Z" duration="0.622283" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1018">
     <environment framework-version="3.13.3.0" clr-version="8.0.0" os-version="Microsoft Windows 10.0.22631" platform="Win32NT" cwd="D:\Faculta\Anul 2 Semestrul 2\Metode de Dezvoltare Software\MagicEvolutionMerge\MagicEvolution" machine-name="DESKTOP-RNPLIDA" user="Anghel Fabian" user-domain="DESKTOP-RNPLIDA" culture="en-GB" uiculture="en-GB" os-architecture="x64" />
     <settings>
       <setting name="WorkDirectory" value="D:\Faculta\Anul 2 Semestrul 2\Metode de Dezvoltare Software\MagicEvolutionMerge\MagicEvolution" />
       <setting name="NumberOfTestWorkers" value="20" />
     </settings>
     <properties>
-      <property name="_PID" value="31244" />
+      <property name="_PID" value="22360" />
       <property name="_APPDOMAIN" value="DefaultDomain" />
     </properties>
-    <failure>
-      <message><![CDATA[One or more child tests had errors]]></message>
-    </failure>
-    <test-suite type="TestSuite" id="1009" name="MagicEvolution" fullname="MagicEvolution" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2024-06-16T14:29:17.2818860Z" end-time="2024-06-16T14:29:17.3383217Z" duration="0.056435" total="1" passed="0" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="2">
-      <failure>
-        <message><![CDATA[One or more child tests had errors]]></message>
-      </failure>
-      <test-suite type="TestSuite" id="1010" name="Tests" fullname="MagicEvolution.Tests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2024-06-16T14:29:17.2823578Z" end-time="2024-06-16T14:29:17.3382866Z" duration="0.055929" total="1" passed="0" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="2">
-        <failure>
-          <message><![CDATA[One or more child tests had errors]]></message>
-        </failure>
-        <test-suite type="TestFixture" id="1004" name="PlayerTests" fullname="MagicEvolution.Tests.PlayerTests" classname="MagicEvolution.Tests.PlayerTests" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2024-06-16T14:29:17.2838785Z" end-time="2024-06-16T14:29:17.3380341Z" duration="0.054156" total="1" passed="0" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="2">
-          <failure>
-            <message><![CDATA[One or more child tests had errors]]></message>
-          </failure>
-          <test-case id="1005" name="TestWizbitInitialization" fullname="MagicEvolution.Tests.PlayerTests.TestWizbitInitialization" methodname="TestWizbitInitialization" classname="MagicEvolution.Tests.PlayerTests" runstate="Runnable" seed="1523033526" result="Failed" start-time="2024-06-16T14:29:17.2868183Z" end-time="2024-06-16T14:29:17.3363039Z" duration="0.049531" asserts="2">
-            <failure>
-              <message><![CDATA[  Nu a fost initializat id corect
-  Expected: 1
-  But was:  0
-]]></message>
-              <stack-trace><![CDATA[   at MagicEvolution.Tests.PlayerTests.TestWizbitInitialization() in D:\Faculta\Anul 2 Semestrul 2\Metode de Dezvoltare Software\MagicEvolutionMerge\MagicEvolution\testing\TestClass.cs:line 28
-]]></stack-trace>
-            </failure>
-            <assertions>
-              <assertion result="Failed">
-                <message><![CDATA[  Nu a fost initializat id corect
-  Expected: 1
-  But was:  0
-]]></message>
-                <stack-trace><![CDATA[   at MagicEvolution.Tests.PlayerTests.TestWizbitInitialization() in D:\Faculta\Anul 2 Semestrul 2\Metode de Dezvoltare Software\MagicEvolutionMerge\MagicEvolution\testing\TestClass.cs:line 28
-]]></stack-trace>
-              </assertion>
-            </assertions>
-          </test-case>
+    <test-suite type="TestSuite" id="1009" name="MagicEvolution" fullname="MagicEvolution" runstate="Runnable" testcasecount="1" result="Passed" start-time="2024-06-16T16:54:27.1269649Z" end-time="2024-06-16T16:54:27.2098254Z" duration="0.082859" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1000">
+      <test-suite type="TestSuite" id="1010" name="Tests" fullname="MagicEvolution.Tests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2024-06-16T16:54:27.1276155Z" end-time="2024-06-16T16:54:27.2097880Z" duration="0.082172" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1000">
+        <test-suite type="TestFixture" id="1004" name="PlayerTests" fullname="MagicEvolution.Tests.PlayerTests" classname="MagicEvolution.Tests.PlayerTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2024-06-16T16:54:27.1294095Z" end-time="2024-06-16T16:54:27.2094636Z" duration="0.080054" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1000">
+          <test-case id="1005" name="TestNNMutation" fullname="MagicEvolution.Tests.PlayerTests.TestNNMutation" methodname="TestNNMutation" classname="MagicEvolution.Tests.PlayerTests" runstate="Runnable" seed="2117847851" result="Passed" start-time="2024-06-16T16:54:27.1323172Z" end-time="2024-06-16T16:54:27.2060778Z" duration="0.073847" asserts="1000" />
         </test-suite>
       </test-suite>
     </test-suite>
-    <test-suite type="TestSuite" id="1007" name="WorldGen" fullname="WorldGen" runstate="Runnable" testcasecount="3" result="Passed" start-time="2024-06-16T14:29:17.2825713Z" end-time="2024-06-16T14:29:17.7063304Z" duration="0.423759" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="18">
-      <test-suite type="TestSuite" id="1008" name="Tests" fullname="WorldGen.Tests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2024-06-16T14:29:17.2825825Z" end-time="2024-06-16T14:29:17.7063237Z" duration="0.423741" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="18">
-        <test-suite type="TestFixture" id="1000" name="WorldGenTests" fullname="WorldGen.Tests.WorldGenTests" classname="WorldGen.Tests.WorldGenTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2024-06-16T14:29:17.3390789Z" end-time="2024-06-16T14:29:17.7063170Z" duration="0.367238" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="18">
-          <test-case id="1003" name="AtlantisGenTest" fullname="WorldGen.Tests.WorldGenTests.AtlantisGenTest" methodname="AtlantisGenTest" classname="WorldGen.Tests.WorldGenTests" runstate="Runnable" seed="513313012" result="Passed" start-time="2024-06-16T14:29:17.3392304Z" end-time="2024-06-16T14:29:17.4760906Z" duration="0.136861" asserts="6" />
-          <test-case id="1002" name="DesertedWorldGenTest" fullname="WorldGen.Tests.WorldGenTests.DesertedWorldGenTest" methodname="DesertedWorldGenTest" classname="WorldGen.Tests.WorldGenTests" runstate="Runnable" seed="1324001458" result="Passed" start-time="2024-06-16T14:29:17.4761273Z" end-time="2024-06-16T14:29:17.5911627Z" duration="0.115036" asserts="6" />
-          <test-case id="1001" name="NormalGenTest" fullname="WorldGen.Tests.WorldGenTests.NormalGenTest" methodname="NormalGenTest" classname="WorldGen.Tests.WorldGenTests" runstate="Runnable" seed="1632127813" result="Passed" start-time="2024-06-16T14:29:17.5911960Z" end-time="2024-06-16T14:29:17.7062665Z" duration="0.115071" asserts="6" />
+    <test-suite type="TestSuite" id="1007" name="WorldGen" fullname="WorldGen" runstate="Runnable" testcasecount="3" result="Passed" start-time="2024-06-16T16:54:27.1277356Z" end-time="2024-06-16T16:54:27.7399939Z" duration="0.612258" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="18">
+      <test-suite type="TestSuite" id="1008" name="Tests" fullname="WorldGen.Tests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2024-06-16T16:54:27.1277576Z" end-time="2024-06-16T16:54:27.7399876Z" duration="0.612230" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="18">
+        <test-suite type="TestFixture" id="1000" name="WorldGenTests" fullname="WorldGen.Tests.WorldGenTests" classname="WorldGen.Tests.WorldGenTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2024-06-16T16:54:27.2110360Z" end-time="2024-06-16T16:54:27.7399778Z" duration="0.528941" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="18">
+          <test-case id="1003" name="AtlantisGenTest" fullname="WorldGen.Tests.WorldGenTests.AtlantisGenTest" methodname="AtlantisGenTest" classname="WorldGen.Tests.WorldGenTests" runstate="Runnable" seed="997197639" result="Passed" start-time="2024-06-16T16:54:27.2111876Z" end-time="2024-06-16T16:54:27.4145922Z" duration="0.203405" asserts="6" />
+          <test-case id="1002" name="DesertedWorldGenTest" fullname="WorldGen.Tests.WorldGenTests.DesertedWorldGenTest" methodname="DesertedWorldGenTest" classname="WorldGen.Tests.WorldGenTests" runstate="Runnable" seed="1465239059" result="Passed" start-time="2024-06-16T16:54:27.4146437Z" end-time="2024-06-16T16:54:27.5868786Z" duration="0.172236" asserts="6" />
+          <test-case id="1001" name="NormalGenTest" fullname="WorldGen.Tests.WorldGenTests.NormalGenTest" methodname="NormalGenTest" classname="WorldGen.Tests.WorldGenTests" runstate="Runnable" seed="466079388" result="Passed" start-time="2024-06-16T16:54:27.5869300Z" end-time="2024-06-16T16:54:27.7399095Z" duration="0.152980" asserts="6" />
         </test-suite>
       </test-suite>
     </test-suite>
