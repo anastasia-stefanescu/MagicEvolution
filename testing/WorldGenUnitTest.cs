@@ -34,7 +34,7 @@ namespace WorldGen.Tests
 				Assert.Less(avgVeg, 60);
 			});
 		}
-		
+
 		[Test]
 		public void DesertedWorldGenTest()
 		{
