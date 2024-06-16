@@ -16,7 +16,7 @@ public partial class Wizbit : CharacterBody2D
 	private static readonly double rotation_speed = 2;
 
 	public Wizbit() {
-		
+		//id = ++id_generator;
 	}
 	public override void _EnterTree()
 	{   //adaugam in arbore manual "copii" nodului de Wizbit
@@ -57,6 +57,10 @@ public partial class Wizbit : CharacterBody2D
 	
 	public double getCurrentHp(){
 		return currentHp;
+	}
+	
+	public double getCurrentMana(){
+		return currentMana;
 	}
 
 	public int getId(){
@@ -233,7 +237,6 @@ public partial class Wizbit : CharacterBody2D
 		MoveAndSlide();
 		
 	}
-
 
 	//public override void _Process(double delta)
 	//{
