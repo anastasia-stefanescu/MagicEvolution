@@ -1,0 +1,130 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvxkohvchoio8"]
+
+[ext_resource type="Script" path="res://Ui/StatsMenu.gd" id="1_otbv1"]
+[ext_resource type="Texture2D" uid="uid://ck7ylxa63bm7k" path="res://Ui/Backround_ui.png" id="1_xdsap"]
+
+[node name="StatsMenu" type="Control"]
+top_level = true
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_otbv1")
+
+[node name="Text" type="NinePatchRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.498039)
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.395
+anchor_bottom = 0.687
+offset_right = -0.0400085
+offset_bottom = -0.176025
+texture = ExtResource("1_xdsap")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Campuri" type="VBoxContainer" parent="Text"]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 273.0
+offset_bottom = 368.0
+
+[node name="Id" type="RichTextLabel" parent="Text/Campuri"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "abc
+"
+
+[node name="Hp" type="RichTextLabel" parent="Text/Campuri"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+text = "abc
+"
+
+[node name="Mana" type="RichTextLabel" parent="Text/Campuri"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+text = "abc
+"
+
+[node name="Generation" type="RichTextLabel" parent="Text/Campuri"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+text = "abc
+"
+
+[node name="Neuron" type="RichTextLabel" parent="Text/Campuri"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+text = "abc
+"
+
+[node name="Valori" type="VBoxContainer" parent="Text"]
+layout_mode = 1
+offset_left = 270.0
+offset_top = 32.0
+offset_right = 432.0
+offset_bottom = 368.0
+
+[node name="Label" type="RichTextLabel" parent="Text/Valori"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Label2" type="RichTextLabel" parent="Text/Valori"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Label3" type="RichTextLabel" parent="Text/Valori"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Label4" type="RichTextLabel" parent="Text/Valori"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Label5" type="RichTextLabel" parent="Text/Valori"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]1"
+
+[node name="Button" type="Button" parent="Text"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = 368.0
+offset_right = -141.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close Menu"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

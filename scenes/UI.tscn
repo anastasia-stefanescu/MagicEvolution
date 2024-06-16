@@ -1,0 +1,162 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnnudec7xiftc"]
+
+[ext_resource type="Texture2D" uid="uid://dkqn7m2arkpq0" path="res://Ui/background.jpg" id="1_4gors"]
+[ext_resource type="Script" path="res://Ui/Main Menu.gd" id="1_8dbbm"]
+[ext_resource type="Texture2D" uid="uid://b5c5gnyhf2hxf" path="res://Ui/menu.jpg" id="2_5j16d"]
+[ext_resource type="Texture2D" uid="uid://b7guy4wh5uqxj" path="res://Ui/background_text.png" id="4_875h0"]
+
+[sub_resource type="GDScript" id="GDScript_n3au2"]
+
+[sub_resource type="Animation" id="Animation_c67f0"]
+resource_name = "FadeText"
+length = 2.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1.1, 1.3, 1.5, 1.7, 2, 2.2, 2.4, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.617454, 0.617455, 0.617454, 1), Color(0.501406, 0.501407, 0.501406, 1), Color(0.641934, 0.641934, 0.641934, 1), Color(1, 1, 1, 1), Color(0.617454, 0.617455, 0.617454, 1), Color(0.501406, 0.501407, 0.501406, 1), Color(0.641934, 0.641934, 0.641934, 1), Color(1, 1, 1, 1), Color(0.617454, 0.617455, 0.617454, 1), Color(0.501406, 0.501407, 0.501406, 1), Color(0.641934, 0.641934, 0.641934, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_btujb"]
+_data = {
+"FadeText": SubResource("Animation_c67f0")
+}
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8dbbm")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Sprite2D" parent="Main Menu"]
+position = Vector2(575, 327.25)
+scale = Vector2(1.19792, 0.982759)
+texture = ExtResource("1_4gors")
+
+[node name="Menu" type="NinePatchRect" parent="Main Menu"]
+visible = false
+top_level = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -216.0
+offset_right = 344.0
+offset_bottom = 269.0
+grow_vertical = 2
+texture = ExtResource("2_5j16d")
+script = SubResource("GDScript_n3au2")
+
+[node name="Buttons" type="VBoxContainer" parent="Main Menu/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -170.5
+offset_right = 129.0
+offset_bottom = 195.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="Main Menu/Menu/Buttons"]
+layout_mode = 2
+text = "START
+"
+
+[node name="CheckButton" type="CheckButton" parent="Main Menu/Menu/Buttons"]
+modulate = Color(0.329764, 0.525037, 1, 1)
+layout_mode = 2
+button_pressed = true
+text = "Disable AI
+"
+
+[node name="CheckButton2" type="CheckButton" parent="Main Menu/Menu/Buttons"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+button_pressed = true
+keep_pressed_outside = true
+text = "Disable AI
+"
+
+[node name="CheckButton3" type="CheckButton" parent="Main Menu/Menu/Buttons"]
+modulate = Color(1, 0.0117647, 0, 1)
+layout_mode = 2
+button_pressed = true
+keep_pressed_outside = true
+text = "Disable AI
+"
+
+[node name="CheckButton4" type="CheckButton" parent="Main Menu/Menu/Buttons"]
+modulate = Color(1, 0.0117647, 1, 1)
+layout_mode = 2
+button_pressed = true
+text = "Disable AI
+"
+
+[node name="PressKey" type="NinePatchRect" parent="Main Menu"]
+layout_mode = 1
+offset_left = 418.0
+offset_top = 324.0
+offset_right = 684.0
+offset_bottom = 395.0
+texture = ExtResource("4_875h0")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Text" type="RichTextLabel" parent="Main Menu/PressKey"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -34.5
+offset_right = 133.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+[center]Press any key to start[center]
+"
+fit_content = true
+tab_size = 8
+
+[node name="TextFlash" type="AnimationPlayer" parent="Main Menu/PressKey/Text"]
+libraries = {
+"": SubResource("AnimationLibrary_btujb")
+}
+
+[connection signal="pressed" from="Main Menu/Menu/Buttons/Start" to="Main Menu" method="_on_start_pressed"]
+[connection signal="pressed" from="Main Menu/Menu/Buttons/CheckButton" to="Main Menu/Menu" method="_on_check_button_pressed"]
+[connection signal="pressed" from="Main Menu/Menu/Buttons/CheckButton2" to="Main Menu/Menu" method="_on_check_button_2_pressed"]
+[connection signal="pressed" from="Main Menu/Menu/Buttons/CheckButton3" to="Main Menu/Menu" method="_on_check_button_3_pressed"]
+[connection signal="pressed" from="Main Menu/Menu/Buttons/CheckButton4" to="Main Menu/Menu" method="_on_check_button_4_pressed"]

@@ -12,10 +12,13 @@ public partial class test : Node2D
 	public PackedScene WizbitScene;
 
 	//la inceputul jocului, spawnam un anumit numar de Mana si Wizbiti
+	public PackedScene StatsMenuScene;
+
 	public override void _Ready()
 	{
 		ManaScene = GD.Load<PackedScene>("res://scenes/mana.tscn");
 		WizbitScene = GD.Load<PackedScene>("res://scenes/wizbit.tscn");
+		StatsMenuScene = GD.Load<PackedScene>("res://scenes/StatsMenu.tscn");
 		
 		var rng = new RandomNumberGenerator();
 		rng.Randomize(); 

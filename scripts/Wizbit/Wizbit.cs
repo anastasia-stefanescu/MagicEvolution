@@ -260,8 +260,25 @@ public partial class Wizbit : CharacterBody2D
 		//
 		//MoveAndSlide();
 		//}
-	
+		
+	private void _on_input_event(Node viewport, InputEvent @event, int shape_idx)
+	{
+		if (@event is InputEventMouseButton mouseButtonEvent)
+		{
+			if (mouseButtonEvent.Pressed)
+			{
+				double maxMana = stats.getMaxMana();
+				double maxHP = stats.getMaxHP();
+				var wizbit_data = {
+					"id": id,
+					"hp": currentHp,
+					"mana": currentMana,
+					"maxMana": maxMana,
+					"maxHP" : maxHP
+				}
+				
+				emit_signal("wizbit_clicked", wizbit_data)
+			}
+		}
+	}
 }
-
-
-
