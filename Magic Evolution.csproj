@@ -6,10 +6,11 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>MagicEvolution</RootNamespace>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="NUnit" Version="3.13.3" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
-    <PackageReference Include="NUnitLite" Version="3.13.3" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
-  </ItemGroup>
+     <PackageReference Include="NUnit" Version="3.13.3" />
+     <PackageReference Include="NUnitLite" Version="3.13.3" />
+     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
+     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+   </ItemGroup>
 </Project>

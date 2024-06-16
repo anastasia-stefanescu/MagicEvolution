@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://de4gcmu0mwpnj"]
+[gd_scene load_steps=9 format=3 uid="uid://dpr0476sdtvdn"]
 
 [ext_resource type="Script" path="res://scenes/test.cs" id="1_0ask7"]
 [ext_resource type="Texture2D" uid="uid://chxscqjimneuv" path="res://frames/background_tile.png" id="2_xt43m"]

@@ -63,6 +63,7 @@ public partial class Wizbit : CharacterBody2D
 		return currentMana;
 	}
 
+
 	public int getId(){
 		return id;
 	}
@@ -183,11 +184,11 @@ public partial class Wizbit : CharacterBody2D
 	public override void _Process(double delta)
 	{
 		//get biome for the current position of the wizibit
-		int x = Math.Max(Math.Min((int)this.Position.X / 8, 511), 0);
-		int y = Math.Max(Math.Min((int)this.Position.Y / 8, 511), 0);
-		double currentTemp = WorldGenerator.tempNoiseMap[x, y];
-		double currentAlt = WorldGenerator.altNoiseMap[x, y];
-		double currentVeg = WorldGenerator.vegNoiseMap[x, y];
+		 int x = Math.Max(Math.Min((int)this.Position.X / 8, 511), 0);
+		 int y = Math.Max(Math.Min((int)this.Position.Y / 8, 511), 0);
+		 double currentTemp = WorldGenerator.tempNoiseMap[x, y];
+		 double currentAlt = WorldGenerator.altNoiseMap[x, y];
+		 double currentVeg = WorldGenerator.vegNoiseMap[x, y];
 		
 		//descrestem mana bazat pe temperatura curenta si cea adaptata
 		double currentCost = this.stats.getConstantCost() * (1 - currentVeg / 200) * Math.Max((1 - (50 - Math.Abs(this.stats.getIdealTemp() - currentTemp)) / 50), 0.25);
@@ -232,11 +233,27 @@ public partial class Wizbit : CharacterBody2D
 		float rotation = (float)ai_output.rotate * (float)rotation_speed * (float)delta;
 		movement = movement.Rotated(rotation);
 		
-		//movement = new Vector2(0, 0); // FOR TESTING ONLY
+		//Vector2 movement = new Vector2(0, 0); // FOR TESTING ONLY
 		Velocity = movement;
 		MoveAndSlide();
 		
 	}
+	
+	//private void _on_mouse_entered()
+	//{
+		//PackedScene MenuScene = GD.Load<StatsMenu>("res://scenes/StatsMenu.tscn");
+		//StatsMenu instance = MenuScene.Instantiate<StatsMenu>();
+//
+		//instance.wizbit_id = this.id;
+		//instance.currentMana = this.currentMana;
+	   	//instance.generation = this.generation;
+		//instance.currentHp = this.currentHp;
+		//instance.maxMana = this.stats.getMaxMana();
+		//instance.maxHp = this.stats.getMaxHp();
+		//instance.hidden_neurons = this.neuralNetwork.getHiddenNeuronCount();
+		//
+		//GetTree().Root.CallDeferred("add_child", instance); 
+	//}
 
 	//public override void _Process(double delta)
 	//{
@@ -287,3 +304,6 @@ public partial class Wizbit : CharacterBody2D
 		}
 	}
 }
+
+
+
