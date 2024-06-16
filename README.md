@@ -10,6 +10,17 @@ Their **behaviour** is dictated by **an AI - a neural network created uniquely f
 
 ## User Stories 
 The link to Trello can be found here : https://trello.com/b/Xt5yt4hK/magic-evolution
+<img width="1221" alt="Screenshot 2024-06-16 at 20 21 28" src="https://github.com/grig95/MagicEvolution/assets/119175350/cbf912ba-3145-4f35-ba8f-f7059cdb5fd5">
+1. I want to be able to set certain parameters of the simulation
+2. I want to be able to see the Wizbits' characteristics
+3. I want to be able to see interactions between Wizbits and the environment
+4. I want to see competition between Wizbits (spells)
+5. I want to see the Wizbits creating new generations
+6. I want to see some kind of stability in the Wizbit population
+7. I want to notice diverity in the environment
+8. I want the Wizbits' features to be evolvable
+9. I want the Wizbits' abilities to be evolvable
+10. I want to see general data about the simulation in real-time
 
 ## How to play the game
 
