@@ -9,6 +9,7 @@ The Wizbits can move freely around, **need to consume Mana pellets** to sustain 
 Their **behaviour** is dictated by **an AI - a neural network created uniquely for each Wizbit**, which can also **evolve** when new generations are created.
 
 ## User Stories 
+The link to Trello can be found here : https://trello.com/b/Xt5yt4hK/magic-evolution
 
 ## How to play the game
 
@@ -17,10 +18,10 @@ Their **behaviour** is dictated by **an AI - a neural network created uniquely f
 The UML Diagrams can be found here: https://github.com/grig95/MagicEvolution/tree/master/project_structure
 
 ## Source Control
- - Branches:
- - Commits:
+ - Branches: https://github.com/grig95/MagicEvolution/branches
+ - Commits: https://github.com/grig95/MagicEvolution/commits/master/
  - Merge(s) : 
- - Pull requests:
+ - Pull requests: https://github.com/grig95/MagicEvolution/pulls?q=is%3Apr+is%3Aclosed
 
 ## Comments
 Those can be found in the scripts files, namely in the Wizbit and AI folders
@@ -33,3 +34,7 @@ https://github.com/grig95/MagicEvolution/blob/master/scripts/GenomeFactory.cs
 We've also used a **Singleton** class here: 
 
 ## Unit testing
+
+## Using AI
+We used AI to help us do the Unit Testing, we asked ChatGPT how to set up the framework for testing in Godot C#, and the result can be found here:
+
