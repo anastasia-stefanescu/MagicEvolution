@@ -43,7 +43,13 @@ And the test output here:
 
 Here are the outputs as well to visualise easier:
 <img width="671" alt="Screenshot 2024-06-16 at 20 00 49" src="https://github.com/grig95/MagicEvolution/assets/119175350/bfcf445c-5c88-4958-b095-6a610abcd322">
+![image](https://github.com/grig95/MagicEvolution/assets/119175350/3097c678-e059-4ffd-8185-48353bb6aebd)
+
 
 ## Using AI
-We used AI to help us do the Unit Testing, we asked ChatGPT how to set up the framework for testing in Godot C#, and the result can be found here:
-https://github.com/grig95/MagicEvolution/blob/WizbittAdaptation/message.txt
+We used AI to help us do the Unit Testing, we asked ChatGPT:
+ - how to set up the framework for testing in Godot C#, and the result can be found here:
+   https://github.com/grig95/MagicEvolution/blob/WizbittAdaptation/message.txt
+- how to set up a TestRunner class for running tests in Godot:
+![gpt](https://github.com/grig95/MagicEvolution/assets/119175350/f576a4f5-4d96-40e9-a963-1c4934ad742a)
+
