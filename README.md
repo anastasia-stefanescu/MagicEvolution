@@ -16,6 +16,7 @@ The link to Trello can be found here : https://trello.com/b/Xt5yt4hK/magic-evolu
 
 ## Diagrams
 The UML Diagrams can be found here: https://github.com/grig95/MagicEvolution/tree/master/project_structure
+![ai drawio (1)](https://github.com/grig95/MagicEvolution/assets/119175350/d2ff6c55-b1b4-4cf8-86a8-0e8afc0d548f)
 
 ## Source Control
  - Branches: https://github.com/grig95/MagicEvolution/branches
