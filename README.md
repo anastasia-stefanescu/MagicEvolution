@@ -8,28 +8,28 @@ The Wizbits can move freely around, **need to consume Mana pellets** to sustain 
 
 Their **behaviour** is dictated by **an AI - a neural network created uniquely for each Wizbit**, which can also **evolve** when new generations are created.
 
-# User Stories 
+## User Stories 
 
-# How to play the game
+## How to play the game
 
 
-# Diagrams
+## Diagrams
 The UML Diagrams can be found here: https://github.com/grig95/MagicEvolution/tree/master/project_structure
 
-# Source Control
+## Source Control
  - Branches:
  - Commits:
  - Merge(s) : 
  - Pull requests:
 
-# Comments
+## Comments
 Those can be found in the scripts files, namely in the Wizbit and AI folders
 
-# Design Patterns
+## Design Patterns
 We've used a **Factory** Design Pattern to create the Genomes:
 
 https://github.com/grig95/MagicEvolution/blob/master/scripts/GenomeFactory.cs
 
 We've also used a **Singleton** class here: 
 
-# Unit testing
+## Unit testing
