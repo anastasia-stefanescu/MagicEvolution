@@ -2,13 +2,6 @@ extends Control
 
 var opened = false;
 
-@onready var Start = $Menu/Buttons/Start;
-@onready var ButtonMenu = $Menu/Buttons; 
-@onready var Button1 = $Menu/Buttons/CheckButton;
-@onready var Button2 = $Menu/Buttons/CheckButton2;
-@onready var Button3 = $Menu/Buttons/CheckButton3;
-@onready var Button4 = $Menu/Buttons/CheckButton4;
-
 func _ready():
 	$PressKey/Text/TextFlash.play("FadeText")
 	
@@ -23,16 +16,14 @@ func toggle_menu():
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://scenes/test.tscn")
 
-func _on_check_button_pressed():
-	pass # Replace with function body.
+func _on_biome_menu_item_selected(index):
+	Global.selected_index = index
+	print(Global.selected_index)
 
-func _on_check_button_2_pressed():
-	pass # Replace with function body.
-
-func _on_check_button_3_pressed():
-	pass # Replace with function body.
-
-func _on_check_button_4_pressed():
-	pass # Replace with function body.
-
- 
+func _on_wiz_number_value_changed(value):
+	Global.wiz = value
+	print(Global.wiz)
+	
+func _on_mana_value_changed(value):
+	Global.mana = value
+	print(Global.mana)

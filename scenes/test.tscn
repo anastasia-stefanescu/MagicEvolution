@@ -24,6 +24,7 @@ gui_embed_subwindows = true
 title = "Stats Menu"
 position = Vector2i(0, 36)
 size = Vector2i(480, 270)
+visible = false
 max_size = Vector2i(640, 360)
 content_scale_size = Vector2i(1152, 648)
 content_scale_mode = 2
@@ -55,6 +56,7 @@ theme_override_font_sizes/font_size = 50
 text = "Close Menu"
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 offset_left = -13391.0
 offset_top = -7550.0
 offset_right = 13195.0

@@ -3,13 +3,14 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 public static class SimulationParameters {
-	
+	private static SceneTree tree = (SceneTree)Engine.GetMainLoop();
+	private static Node Global = tree.Root.GetNode("/root/Global");
 	//public static double rangeOnWhichGenerated = 200;
 	public static double rangeOnWhichGenerated = 4096;
 	//public static double initialNoWizbits = 5;
-	public static double initialNoWizbits = 100;
+	public static double initialNoWizbits = (int)Global.Get("wiz");
 	//public static double initialNoMana = 20;
-	public static double initialNoMana = 1500;
+	public static double initialNoMana = (int)Global.Get("mana");
 	public static double crtNoWizbits = 0;
 	public static double crtNoMana = 0;
 	public static double ManaValue = 10;

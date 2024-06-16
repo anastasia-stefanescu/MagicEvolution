@@ -12,6 +12,18 @@ public partial class WorldGenerator : Node2D
 	static public double[,] vegNoiseMap = new double[height, width];
 	static public int[,]  biomeMap = new int[height, width];
 	
+	static public int index = 0;
+	static public string[] presets = {
+		"Normal",
+		"DesertedWorld",
+		"FireAndIce",
+		"LushFields",
+		"Atlantis",
+		"Siberia",
+		"Contemporary",
+		"HugeBiomes"
+	};
+	
 	Dictionary<String, Biome> BiomeList = new Dictionary<String, Biome>();
 	public Dictionary<String, Preset> WorldPresets = new Dictionary<String, Preset>();
 	
@@ -145,7 +157,9 @@ public partial class WorldGenerator : Node2D
 		biomeListGen();
 		worldPresetsGen();
 		//generate map
-		generateWorld(WorldPresets["Normal"]);
+		var tree = (SceneTree)Engine.GetMainLoop();
+		var Global = tree.Root.GetNode("/root/Global");
+		generateWorld(WorldPresets[presets[(int)Global.Get("selected_index")]]);
 		makeMap();
 	}
 
