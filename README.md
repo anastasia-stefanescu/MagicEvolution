@@ -17,6 +17,8 @@ The link to Trello can be found here : https://trello.com/b/Xt5yt4hK/magic-evolu
 ## Diagrams
 The UML Diagrams can be found here: https://github.com/grig95/MagicEvolution/tree/master/project_structure
 ![ai drawio (1)](https://github.com/grig95/MagicEvolution/assets/119175350/d2ff6c55-b1b4-4cf8-86a8-0e8afc0d548f)
+![dependinte drawio](https://github.com/grig95/MagicEvolution/assets/119175350/4e38bb74-1c33-478f-8b38-86053a6428f0)
+
 
 ## Source Control
  - Branches: https://github.com/grig95/MagicEvolution/branches
@@ -35,7 +37,13 @@ https://github.com/grig95/MagicEvolution/blob/master/scripts/GenomeFactory.cs
 We've also used a **Singleton** class here: 
 
 ## Unit testing
+We've used the **NUnit Framework** to do the Automated Testing, the code can be found in this folder:
+
+And the test output here: 
+
+Here are the outputs as well to visualise easier:
+<img width="671" alt="Screenshot 2024-06-16 at 20 00 49" src="https://github.com/grig95/MagicEvolution/assets/119175350/bfcf445c-5c88-4958-b095-6a610abcd322">
 
 ## Using AI
 We used AI to help us do the Unit Testing, we asked ChatGPT how to set up the framework for testing in Godot C#, and the result can be found here:
-
+https://github.com/grig95/MagicEvolution/blob/WizbittAdaptation/message.txt
