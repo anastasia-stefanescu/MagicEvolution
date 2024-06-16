@@ -1,0 +1,100 @@
+Unit testing in Godot Engine involves creating tests to verify that individual parts of your game or application function correctly. Godot provides a built-in framework for writing and running unit tests, which is designed to help you ensure that your scripts and nodes behave as expected. Here’s a guide to help you get started with unit testing in Godot:
+
+### Setting Up Unit Tests in Godot
+
+1. **Creating a Test Script:**
+   - Create a new script that will contain your test cases. Typically, this script is placed in a `tests` directory within your project to keep it organized.
+
+2. **Extending the Script:**
+   - Extend your test script from `SceneTree` to make use of Godot’s testing functions.
+
+   ```gdscript
+   extends SceneTree
+   ```
+
+3. **Writing Test Cases:**
+   - Define your test functions within the script. Each test function should start with the prefix `test_`.
+
+   ```gdscript
+   func test_example():
+       var a = 1
+       var b = 1
+       assert(a == b)
+   ```
+
+4. **Using Assertions:**
+   - Use Godot’s built-in assertion functions to check conditions. If an assertion fails, the test will fail. Common assertions include `assert`, `assert_eq`, `assert_ne`, and `assert_throws`.
+
+   ```gdscript
+   func test_addition():
+       var result = 1 + 1
+       assert(result == 2)
+   ```
+
+5. **Running Tests:**
+   - To run your tests, you can use the command line or set up a test runner scene.
+
+   **Command Line:**
+   ```sh
+   godot --script path/to/your/test_script.gd
+   ```
+
+   **Test Runner Scene:**
+   - Create a new scene and attach a script to it. In this script, you can call `run_tests()` to execute all test functions in your project.
+
+   ```gdscript
+   extends Node
+
+   func _ready():
+       var result = run_tests()
+       print(result)
+       get_tree().quit()
+   ```
+
+### Example Test Script
+
+Here’s a more comprehensive example of a test script:
+
+```gdscript
+extends SceneTree
+
+func test_addition():
+    var result = 2 + 3
+    assert(result == 5, "Addition failed")
+
+func test_subtraction():
+    var result = 5 - 3
+    assert(result == 2, "Subtraction failed")
+
+func test_multiplication():
+    var result = 2 * 3
+    assert(result == 6, "Multiplication failed")
+
+func test_division():
+    var result = 6 / 2
+    assert(result == 3, "Division failed")
+
+# Example of a more complex test
+func test_custom_function():
+    var example_class = ExampleClass.new()
+    var result = example_class.custom_function(2, 3)
+    assert(result == 5, "Custom function failed")
+```
+
+### Tips for Effective Unit Testing
+
+- **Keep Tests Isolated:**
+  - Ensure each test is independent. Tests should not rely on each other’s results or modify shared state.
+
+- **Test Coverage:**
+  - Aim to cover all critical paths and edge cases in your code.
+
+- **Automate Testing:**
+  - Integrate your tests into a continuous integration (CI) pipeline to automatically run them on every code change.
+
+- **Descriptive Assertions:**
+  - Include descriptive messages in your assertions to make it easier to identify why a test failed.
+
+### Conclusion
+
+Unit testing in Godot is a powerful tool to maintain code quality and reliability. By writing comprehensive tests, you can catch bugs early and ensure your game or application behaves as expected. Using the built-in testing framework, you can create, organize, and run tests efficiently, contributing to a more robust development process.
