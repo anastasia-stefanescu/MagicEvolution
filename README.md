@@ -12,8 +12,9 @@ Their **behaviour** is dictated by **an AI - a neural network created uniquely f
 
 # How to play the game
 
+
 # Diagrams
-The UML Diagrams can be found here:
+The UML Diagrams can be found here: https://github.com/grig95/MagicEvolution/tree/master/project_structure
 
 # Source Control
  - Branches:
@@ -25,8 +26,10 @@ The UML Diagrams can be found here:
 Those can be found in the scripts files, namely in the Wizbit and AI folders
 
 # Design Patterns
-We've used a Factory Design Pattern to create the Genomes:
+We've used a **Factory** Design Pattern to create the Genomes:
 
-We've also used a Singleton class here: 
+https://github.com/grig95/MagicEvolution/blob/master/scripts/GenomeFactory.cs
+
+We've also used a **Singleton** class here: 
 
 # Unit testing
