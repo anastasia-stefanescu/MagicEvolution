@@ -116,4 +116,9 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 	protected override MC_WeightFunctionEnum getWeightFunction() {
 		return SimulationParameters.AIParameters.mc_weightFunction;
 	}
+	
+	public uint getHiddenNeuronCount()
+	{
+		return hiddenNeuronCount;
+	}
 }

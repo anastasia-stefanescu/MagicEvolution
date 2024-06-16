@@ -9,4 +9,4 @@ func _process(delta):
 	pass
 
 func update_menu(data):
-	$Text/Valori.
+	pass

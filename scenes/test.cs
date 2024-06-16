@@ -75,7 +75,7 @@ public partial class test : Node2D
 			allMana.Add(instance);
 		}
 	}
-
+	
 }
 
 

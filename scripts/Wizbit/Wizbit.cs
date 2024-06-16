@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Wizbit : CharacterBody2D
 {
@@ -268,16 +269,17 @@ public partial class Wizbit : CharacterBody2D
 			if (mouseButtonEvent.Pressed)
 			{
 				double maxMana = stats.getMaxMana();
-				double maxHP = stats.getMaxHP();
-				var wizbit_data = {
-					"id": id,
-					"hp": currentHp,
-					"mana": currentMana,
-					"maxMana": maxMana,
-					"maxHP" : maxHP
-				}
-				
-				emit_signal("wizbit_clicked", wizbit_data)
+				double maxHP = stats.getMaxHp();
+				var wizbit_data = new Dictionary<string, double>
+				{
+					{"id", this.id},
+					{"hp", this.currentHp},
+					{"mana", this.currentMana},
+					{"maxMana", maxMana},
+					{"maxHP", maxHP},
+					{"neurons", this.neuralNetwork.getHiddenNeuronCount()},
+					{"gen", this.generation}
+				};
 			}
 		}
 	}
