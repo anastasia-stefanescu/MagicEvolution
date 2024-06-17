@@ -17,13 +17,18 @@ The link to Trello can be found here : https://trello.com/b/Xt5yt4hK/magic-evolu
 4. I want to see competition between Wizbits (spells)
 5. I want to see the Wizbits creating new generations
 6. I want to see some kind of stability in the Wizbit population
-7. I want to notice diverity in the environment
+7. I want to notice diversity in the environment
 8. I want the Wizbits' features to be evolvable
 9. I want the Wizbits' abilities to be evolvable
 10. I want to see general data about the simulation in real-time
 
-## How to play the game
-
+### Backlog
+The tasks we planned were:
+1. Creating the Wizbit and defining an outline for its behaviours
+2. Creating a world with diverse types of environments
+3. Designing the AI that dictates the Wizbit's actions
+4. Having the Wizbit's abilities and characteristics, as well as its AI, be evolvable by creating genomes that can be mutated
+5. Creating a User Interface - a main menu as well as windows that display information about the simulation during the game
 
 ## Diagrams
 The UML Diagrams can be found here: https://github.com/grig95/MagicEvolution/tree/master/project_structure
@@ -38,14 +43,15 @@ The UML Diagrams can be found here: https://github.com/grig95/MagicEvolution/tre
  - Pull requests: https://github.com/grig95/MagicEvolution/pulls?q=is%3Apr+is%3Aclosed
 
 ## Comments
-Those can be found in the scripts files, namely in the Wizbit and AI folders
+Those can be found in the scripts files, namely in the folders for:
+
+ - Wizbit (https://github.com/grig95/MagicEvolution/blob/WizbittAdaptation/scripts/Wizbit/Wizbit.cs)
+ - NeuralNetwork ((https://github.com/grig95/MagicEvolution/tree/WizbittAdaptation/scripts/AI/NeuralNetwork)) 
 
 ## Design Patterns
 We've used a **Factory** Design Pattern to create the Genomes:
 
 https://github.com/grig95/MagicEvolution/blob/master/scripts/GenomeFactory.cs
-
-We've also used a **Singleton** class here: 
 
 ## Unit testing
 We've used the **NUnit Framework** to do the Automated Testing, the code can be found in this folder:
@@ -67,3 +73,4 @@ We used AI to help us do the Unit Testing, we asked ChatGPT:
   
 ![gpt](https://github.com/grig95/MagicEvolution/assets/119175350/f576a4f5-4d96-40e9-a963-1c4934ad742a)
 
+And of course, for various other little things :)
