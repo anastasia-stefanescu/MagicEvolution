@@ -288,18 +288,22 @@ public partial class Wizbit : CharacterBody2D
 		{
 			if (mouseButtonEvent.Pressed)
 			{
-				double maxMana = stats.getMaxMana();
-				double maxHP = stats.getMaxHp();
-				var wizbit_data = new Dictionary<string, double>
-				{
-					{"id", this.id},
-					{"hp", this.currentHp},
-					{"mana", this.currentMana},
-					{"maxMana", maxMana},
-					{"maxHP", maxHP},
-					{"neurons", this.neuralNetwork.getHiddenNeuronCount()},
-					{"gen", this.generation}
-				};
+				GD.Print("Mouse pressed!!!");
+				
+				
+				PackedScene Men = (PackedScene)GD.Load("res://wiz_stats.tscn");
+				Window instance = (Window)Men.Instantiate();
+				WizStats inst = (WizStats)instance;
+				inst.id =id;
+				inst.hp =currentHp;
+				inst.mana = currentMana;
+				inst.maxMana = stats.getMaxMana();
+				inst.maxHP = stats.getMaxHp();
+				inst.generation = generation;
+				inst.neuroncount = (int)neuralNetwork.getHiddenNeuronCount();
+
+				inst.UpdateData();
+				GetTree().Root.CallDeferred("add_child", inst); 
 			}
 		}
 	}

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://svdo51hmui3"]
+
+[ext_resource type="Script" path="res://Stats.cs" id="1_5n3cg"]
+[ext_resource type="PackedScene" uid="uid://b3fmaqg0j834n" path="res://scenes/Menu.tscn" id="2_75npi"]
+
+[node name="Stats" type="Window"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+gui_snap_controls_to_pixels = false
+gui_embed_subwindows = true
+title = "Stats Menu"
+position = Vector2i(850, 426)
+size = Vector2i(260, 190)
+max_size = Vector2i(640, 360)
+content_scale_size = Vector2i(1152, 648)
+content_scale_mode = 2
+content_scale_aspect = 1
+content_scale_stretch = 1
+script = ExtResource("1_5n3cg")
+
+[node name="Menu" parent="." instance=ExtResource("2_75npi")]
+offset_left = 904.0
+offset_top = 479.0
+offset_right = 904.0
+offset_bottom = 479.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

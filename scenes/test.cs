@@ -10,6 +10,9 @@ public partial class test : Node2D
 	private List<Wizbit> allWizbits = new List<Wizbit>();
 	private List<Mana> allMana = new List<Mana>();
 	public PackedScene WizbitScene;
+	public PackedScene Men;
+	public Window instance;
+	public Stats inst;
 
 	//la inceputul jocului, spawnam un anumit numar de Mana si Wizbiti
 	public PackedScene StatsMenuScene;
@@ -20,6 +23,14 @@ public partial class test : Node2D
 		WizbitScene = GD.Load<PackedScene>("res://scenes/wizbit.tscn");
 		StatsMenuScene = GD.Load<PackedScene>("res://scenes/StatsMenu.tscn");
 		
+		Men = (PackedScene)GD.Load("res://Stats.tscn");
+		instance = (Window)Men.Instantiate();
+		inst = (Stats)instance;
+		inst.no_W = (int)SimulationParameters.initialNoWizbits;
+		inst.generation = Wizbit.global_generation;
+		inst.UpdateData();
+		AddChild(inst); 
+				
 		var rng = new RandomNumberGenerator();
 		rng.Randomize(); 
 		
@@ -46,6 +57,10 @@ public partial class test : Node2D
 	//mentinem numarul de Mana din lume
 	public override void _Process(double delta)
 	{
+
+		inst.no_W = (int)SimulationParameters.initialNoWizbits;
+		inst.generation = Wizbit.global_generation;
+		inst.UpdateData();
 		//double cat_se_consuma_pe_frame = SimulationParameters.crtNoWizbits * SimulationParameters.WizbitStatsParameters.constantCost;
 		ReplenishMana((int)SimulationParameters.initialNoMana); //am pus asa deocamdata
 	}

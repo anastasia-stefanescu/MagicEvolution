@@ -14,9 +14,10 @@ public partial class wall_up : Area2D
 	}
 	
 	private void _on_body_entered(Node2D body)
-{
+	{
 	// Replace with function body.
-}
+		//body.Position.X = 
+	}
 }
 
 
