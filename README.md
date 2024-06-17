@@ -94,6 +94,18 @@ Decided instead of having a hidden menu always present that we update with the r
 finalgit add commit:
 https://github.com/grig95/MagicEvolution/commit/27918cbf06108d1a8d52bc6f218a8bef84817895
 
+### Suicidal Wizbits
+
+Wizbit use raycasting for vision and aiming spells. Sounds good enough, right? Right, until they start targeting their most powerful enemy - themselves.
+
+We found this out when we saw that some wizbits, instead of being killed by other wizbits, simply die from a spell.
+In this screenshot, we can see the difference between a wizbit killed by a someone else's spell and killed by its own spell - as he is not attacked.
+
+![image](https://github.com/grig95/MagicEvolution/assets/57030918/1b369b65-d7b2-4236-8900-584e2f464c03)
+
+Fixing commit:
+https://github.com/grig95/MagicEvolution/commit/2ea72ec5d1bfb5d33caf057711af872eadf9a125#diff-ea53cdbcbf91e3c4a5ac9c3cd9b72a61d206773fbe14b9720486607015c30fe6
+
 ### Small bug, Huge Mana Sprites
 After merging branches, we found some irregularities with the mana bottle size:
 
