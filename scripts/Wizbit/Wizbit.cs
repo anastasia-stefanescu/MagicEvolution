@@ -183,6 +183,18 @@ public partial class Wizbit : CharacterBody2D
 
 	public override void _Process(double delta)
 	{
+		Vector2 newPosition = this.Position;
+		if(this.Position.X >= 4088)
+			newPosition.X = 9;
+		if(this.Position.Y >= 4088)
+			newPosition.Y = 9;
+		if(this.Position.X <= 8)
+			newPosition.X = 4087;
+		if(this.Position.Y <= 8)
+			newPosition.Y = 4087;
+			
+		this.Position = newPosition;
+	
 		//get biome for the current position of the wizibit
 		 int x = Math.Max(Math.Min((int)this.Position.X / 8, 511), 0);
 		 int y = Math.Max(Math.Min((int)this.Position.Y / 8, 511), 0);

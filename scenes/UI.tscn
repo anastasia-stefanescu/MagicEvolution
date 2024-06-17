@@ -131,6 +131,7 @@ text = "[center]Mana scarcity"
 
 [node name="Mana" type="HSlider" parent="Main Menu/Menu"]
 modulate = Color(0.329764, 0.525037, 1, 1)
+layout_mode = 0
 offset_left = 51.0
 offset_top = 202.0
 offset_right = 283.0
