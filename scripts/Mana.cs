@@ -9,6 +9,8 @@ public partial class Mana : Area2D
 		Wizbit w = body as Wizbit;
 		w.addMana(SimulationParameters.ManaValue);
 		//GD.Print(customBody.rotation);
+		Wizbit w = body as Wizbit;
+		w.addMana(SimulationParameters.ManaValue);
 		QueueFree();
 	}
 	

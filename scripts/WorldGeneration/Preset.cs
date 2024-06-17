@@ -1,7 +1,7 @@
 using Godot;
 
 //Example worlds that can be generated
-class Preset
+public class Preset
 {
 	public int key;
 	public int height, width, octaves;

@@ -7,6 +7,8 @@
 radius = 25.1794
 
 [node name="Wizbit" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+input_pickable = true
 script = ExtResource("1_dyog5")
 
 [node name="Label" type="Label" parent="."]
@@ -23,3 +25,5 @@ texture = ExtResource("1_el7jh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_krofc")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

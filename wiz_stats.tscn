@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://3v2nq4dc43y4"]
+
+[ext_resource type="Script" path="res://WizStats.cs" id="1_7t5yh"]
+[ext_resource type="PackedScene" uid="uid://30h8xgw8g7bh" path="res://scenes/StatsMenu.tscn" id="2_u60r2"]
+
+[node name="WizStats" type="Window"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+gui_snap_controls_to_pixels = false
+gui_embed_subwindows = true
+title = "Stats Menu"
+position = Vector2i(0, 36)
+size = Vector2i(480, 270)
+max_size = Vector2i(640, 360)
+content_scale_size = Vector2i(1152, 648)
+content_scale_mode = 2
+content_scale_aspect = 1
+content_scale_stretch = 1
+script = ExtResource("1_7t5yh")
+
+[node name="StatsMenu" parent="." instance=ExtResource("2_u60r2")]
+modulate = Color(1, 1, 1, 0.498039)
+self_modulate = Color(1, 1, 1, 0.498039)
+z_index = 10
+layout_direction = 1
+
+[node name="Close" type="Button" parent="."]
+z_index = 100
+z_as_relative = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -118.0
+offset_right = 129.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Close Menu"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

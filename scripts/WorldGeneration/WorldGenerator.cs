@@ -1,18 +1,31 @@
 using Godot;
+using NUnit.Framework.Internal.Execution;
 using System;
 using System.Collections.Generic; 
 
 public partial class WorldGenerator : Node2D
 {
-	static int height = 512;
-	static int width = 512;
-	private double[,] tempNoiseMap = new double[height, width];
-	private double[,] altNoiseMap = new double[height, width];
-	private double[,] vegNoiseMap = new double[height, width];
-	private int[,]  biomeMap = new int[height, width];
+	static public int height = 512;
+	static public int width = 512;
+	static public double[,] tempNoiseMap = new double[height, width];
+	static public double[,] altNoiseMap = new double[height, width];
+	static public double[,] vegNoiseMap = new double[height, width];
+	static public int[,]  biomeMap = new int[height, width];
+	
+	static public int index = 0;
+	static public string[] presets = {
+		"Normal",
+		"DesertedWorld",
+		"FireAndIce",
+		"LushFields",
+		"Atlantis",
+		"Siberia",
+		"Contemporary",
+		"HugeBiomes"
+	};
 	
 	Dictionary<String, Biome> BiomeList = new Dictionary<String, Biome>();
-	Dictionary<String, Preset> WorldPresets = new Dictionary<String, Preset>();
+	public Dictionary<String, Preset> WorldPresets = new Dictionary<String, Preset>();
 	
 	//function to add biomes in dictionary
 	//parameters for biomes: id, min_temp, max_temp, min_alt, max_alt, min_veg, max_veg, sprite
@@ -65,7 +78,7 @@ public partial class WorldGenerator : Node2D
 		BiomeList.Add("Vulcanoes", new Biome(19, 90, 1000, 70, 1000, -1000, 1000, new Vector2I(4, 3)));
 	}
 	
-	private void worldPresetsGen()
+	public void worldPresetsGen()
 	{
 		WorldPresets.Add("Normal", new Preset(0));
 		WorldPresets.Add("DesertedWorld", new Preset(1, tempMod: 82, tempEx: 0.35f, altMod: 60, altEx: 0.7f));
@@ -122,19 +135,20 @@ public partial class WorldGenerator : Node2D
 	}
 	
 	//for each tile on the map, the function for asigning a biome is called
-	private void makeMap(int height, int width)
+	private void makeMap()
 	{
 		for(int i = 0; i < height; i++)
 			for(int j = 0; j < width; j++)
 				setTile(i, j);
 	}
 	
-	private void generateWorld(Preset world)
+	public void generateWorld(Preset world)
 	{
 		tempNoiseMap = noiseMapGen(world.height, world.width, world.octaves, world.tempMod, world.tempEx, world.biomeSize);
 		altNoiseMap = noiseMapGen(world.height, world.width, world.octaves, world.altMod, world.altEx, world.biomeSize);
 		vegNoiseMap = noiseMapGen(world.height, world.width, world.octaves, world.vegMod, world.vegEx, world.biomeSize);
-		makeMap(world.height, world.width);
+		height = world.height;
+		width = world.width;
 	}
 	
 	// Called when the node enters the scene tree for the first time.
@@ -143,7 +157,10 @@ public partial class WorldGenerator : Node2D
 		biomeListGen();
 		worldPresetsGen();
 		//generate map
-		generateWorld(WorldPresets["Normal"]);
+		var tree = (SceneTree)Engine.GetMainLoop();
+		var Global = tree.Root.GetNode("/root/Global");
+		generateWorld(WorldPresets[presets[(int)Global.Get("selected_index")]]);
+		makeMap();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

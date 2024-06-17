@@ -10,11 +10,27 @@ public partial class test : Node2D
 	private List<Wizbit> allWizbits = new List<Wizbit>();
 	private List<Mana> allMana = new List<Mana>();
 	public PackedScene WizbitScene;
+	public PackedScene Men;
+	public Window instance;
+	public Stats inst;
+
+	//la inceputul jocului, spawnam un anumit numar de Mana si Wizbiti
+	public PackedScene StatsMenuScene;
+
 	public override void _Ready()
 	{
 		ManaScene = GD.Load<PackedScene>("res://scenes/mana.tscn");
 		WizbitScene = GD.Load<PackedScene>("res://scenes/wizbit.tscn");
+		StatsMenuScene = GD.Load<PackedScene>("res://scenes/StatsMenu.tscn");
 		
+		Men = (PackedScene)GD.Load("res://Stats.tscn");
+		instance = (Window)Men.Instantiate();
+		inst = (Stats)instance;
+		inst.no_W = (int)SimulationParameters.initialNoWizbits;
+		inst.generation = Wizbit.global_generation;
+		inst.UpdateData();
+		AddChild(inst); 
+				
 		var rng = new RandomNumberGenerator();
 		rng.Randomize(); 
 		
@@ -31,24 +47,31 @@ public partial class test : Node2D
 		{
 			Wizbit instance2 = WizbitScene.Instantiate<Wizbit>();
 			instance2.Position = GetRandomPosition(maxSize, rng);
-			//GD.Print(instance2.neuralNetwork.inputNeuronCount);
+			instance2.generation = Wizbit.global_generation;
 			AddChild(instance2);
 			allWizbits.Add(instance2);
 		}
+		SimulationParameters.crtNoWizbits = SimulationParameters.initialNoWizbits;
 	}
 	
+	//mentinem numarul de Mana din lume
 	public override void _Process(double delta)
 	{
-		double cat_se_consuma_pe_frame = SimulationParameters.crtNoWizbits * SimulationParameters.WizbitStatsParameters.constantCost;
+
+		inst.no_W = (int)SimulationParameters.initialNoWizbits;
+		inst.generation = Wizbit.global_generation;
+		inst.UpdateData();
+		//double cat_se_consuma_pe_frame = SimulationParameters.crtNoWizbits * SimulationParameters.WizbitStatsParameters.constantCost;
 		ReplenishMana((int)SimulationParameters.initialNoMana); //am pus asa deocamdata
-		//ReplenishWizbits(5);
 	}
 	
 	public Vector2 GetRandomPosition(int maxSize, RandomNumberGenerator rng)
 	{
 		Random random = new Random();
-		int x = rng.RandiRange(-maxSize, maxSize);
-		int y = rng.RandiRange(-maxSize, maxSize);
+		//int x = rng.RandiRange(-maxSize, maxSize);
+		//int y = rng.RandiRange(-maxSize, maxSize);
+		int x = rng.RandiRange(0, maxSize);
+		int y = rng.RandiRange(0, maxSize);
 		return new Vector2(x, y);
 	}
 	
@@ -63,24 +86,11 @@ public partial class test : Node2D
 			Mana instance = ManaScene.Instantiate<Mana>();
 			instance.Position = GetRandomPosition(maxSize, rng);
 			AddChild(instance);
-			//GD.Print("replenished mana by 1");
 			SimulationParameters.crtNoMana++;
 			allMana.Add(instance);
 		}
 	}
 	
-	public void ReplenishWizbits(int threshold)
-	{
-		var rng = new RandomNumberGenerator();
-		rng.Randomize(); // Seed with current time
-
-		if (SimulationParameters.crtNoWizbits < threshold)
-		{
-			var instance = WizbitScene.Instantiate<Wizbit>();
-			instance.Position = GetRandomPosition(maxSize, rng);
-			AddChild(instance);
-		}
-	}
 }
 
 

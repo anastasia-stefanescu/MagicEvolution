@@ -7,16 +7,26 @@ public class WizbitStatsGenome : IGenome
 	private double maxMana;
 	private double maxMovementSpeed;
 	
+	//ideal temperature and altitude for a wizbit
+	private double idealTemp;
+	private double idealAlt;
+	
 	public WizbitStatsGenome(double hp, double mana, double speed)
 	{
 		this.maxHp = hp;
 		this.maxMana = mana;
 		this.maxMovementSpeed = speed;
+		
+		this.idealTemp = 50;
+		this.idealAlt = 50;
 	}
 
 	public double getMaxHp() { return maxHp; }
 	public double getMaxMana() { return maxMana; }
 	public double getMaxMovementSpeed() { return maxMovementSpeed; }
+	
+	public double getIdealTemp() {return idealTemp;}
+	public double getIdealAlt() {return idealAlt;}
 	
 	public void mutate(){
 		var rng = new RandomNumberGenerator();
@@ -39,7 +49,9 @@ public class WizbitStatsGenome : IGenome
 		return new WizbitStatsGenome(maxMana, maxHp, maxMovementSpeed);
 	}
 	
+	// mutatiile pt stats
 	private void mutateMaxMana() {
+		GD.Print(" - maxMana");
 		var rng = new RandomNumberGenerator();
 		rng.Randomize();
 		float maxChange = (float)SimulationParameters.WizbitStatsParameters.MutationParameters.ManaMaxChange;
@@ -47,6 +59,7 @@ public class WizbitStatsGenome : IGenome
 	}
 	
 	private void mutateMaxHp() {
+		GD.Print(" - maxHp");
 		var rng = new RandomNumberGenerator();
 		rng.Randomize();
 		float maxChange = (float)SimulationParameters.WizbitStatsParameters.MutationParameters.HpMaxChange;
@@ -54,10 +67,38 @@ public class WizbitStatsGenome : IGenome
 	}
 	
 	private void mutateMaxSpeed() {
+		GD.Print(" - maxSpeed");
 		var rng = new RandomNumberGenerator();
 		rng.Randomize();
 		float maxChange = (float)SimulationParameters.WizbitStatsParameters.MutationParameters.SpeedMaxChange;
 		maxMovementSpeed=maxMovementSpeed*(1+rng.RandfRange(-maxChange, maxChange));
+	}
+	
+	//mutate ideal temperature and altitude based on current enviroment
+	public void mutateEnv(double currentTemp, double currentAlt) {
+		var rng = new RandomNumberGenerator();
+		rng.Randomize();
+		float random = rng.RandfRange(0, 1);
+		if(random < SimulationParameters.WizbitStatsParameters.MutationChances.envChance) {
+			mutateIdealTemp(currentTemp);
+			mutateIdealAlt(currentAlt);
+		}
+	}
+	
+	private void mutateIdealTemp(double currentTemp) {
+		//GD.Print(" - ideal temperature");
+		var rng = new RandomNumberGenerator();
+		rng.Randomize();
+		float maxChange = (float)SimulationParameters.WizbitStatsParameters.MutationParameters.EnvMaxChangeMod;
+		idealTemp=idealTemp+(currentTemp-idealTemp)*rng.RandfRange(-maxChange/2, maxChange);
+	}
+	
+	private void mutateIdealAlt(double currentAlt) {
+		//GD.Print(" - ideal altitude");
+		var rng = new RandomNumberGenerator();
+		rng.Randomize();
+		float maxChange = (float)SimulationParameters.WizbitStatsParameters.MutationParameters.EnvMaxChangeMod;
+		idealAlt=idealAlt+(currentAlt-idealAlt)*rng.RandfRange(-maxChange/2, maxChange);
 	}
 	
 }

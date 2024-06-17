@@ -17,6 +17,10 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		this.genome=(NeuralNetworkGenome)genome.clone();
 		generate();
 	}
+	
+	public uint getInputNeuronCount(){
+		return inputNeuronCount;
+	}
 
 	public override void _EnterTree() {
 		base._EnterTree();
@@ -54,6 +58,7 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		output.moveY = neurons[inputNeuronCount + 1].getOutput();
 		output.rotate = neurons[inputNeuronCount + 2].getOutput();
 		output.reproduce = neurons[inputNeuronCount + 3].getOutput();
+		output.cast_spell = neurons[inputNeuronCount + 4].getOutput();
 
 		return output;
 	}
@@ -67,7 +72,7 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		inputNeuronCount = genome.getInputNeuronCount();
 		outputNeuronCount = AI_Output.fieldCount;
 		hiddenNeuronCount = genome.getHiddenNeuronCount();
-		GD.Print("Generarea NN-ului: input: ", inputNeuronCount, " output: ", outputNeuronCount, " hidden: ", hiddenNeuronCount);
+		//GD.Print("Generarea NN-ului: input: ", inputNeuronCount, " output: ", outputNeuronCount, " hidden: ", hiddenNeuronCount);
 		synapses = genome.getSynapsesCopy();
 
 		neurons = new Neuron[inputNeuronCount+outputNeuronCount+hiddenNeuronCount];
@@ -81,15 +86,15 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 		NN_ActivationFunctionEnum[] tmpHiddenNeuronAF = genome.getHiddenActivationFunctionsCopy();
 		for(uint i=0; i<hiddenNeuronCount; i++) {
 			if(inputNeuronCount + outputNeuronCount + i >= neurons.Length) {
-				GD.Print("neurons index: " + (inputNeuronCount + outputNeuronCount + i));
-				GD.Print("neurons.Length: " + neurons.Length);
-				GD.Print("\n");
+				//GD.Print("neurons index: " + (inputNeuronCount + outputNeuronCount + i));
+				//GD.Print("neurons.Length: " + neurons.Length);
+				//GD.Print("\n");
 			}
 			if(i >= tmpHiddenNeuronAF.Length) {
-				GD.Print("tmpHiddenNeuronAF index: " + i);
-				GD.Print("tmpHiddenNeuronAF.Length: " + tmpHiddenNeuronAF.Length);
-				GD.Print("Hidden neuron count: " + hiddenNeuronCount);
-				GD.Print("\n");
+				//GD.Print("tmpHiddenNeuronAF index: " + i);
+				//GD.Print("tmpHiddenNeuronAF.Length: " + tmpHiddenNeuronAF.Length);
+				//GD.Print("Hidden neuron count: " + hiddenNeuronCount);
+				//GD.Print("\n");
 			}
 
 			neurons[inputNeuronCount + outputNeuronCount + i] = new Neuron(tmpHiddenNeuronAF[i]);
@@ -103,14 +108,23 @@ public partial class NeuralNetwork : ManaConsumer, IEvolvable {
 			throw new AppException("Error in AI: visionNode is null. Make sure the vision node was constructed before call (preferably in child class' constructor and/or in its _enter_tree function).");
 		return visionNode.getVisionData();
 	}
+	
+	public Vision getVision_to_reuse(){
+		return visionNode;
+	}
 
 	public override void calculateCosts() {
-		GD.Print("Warning! NeuralNetwork.calculateCosts() is still not implemented properly!");
+		//GD.Print("Warning! NeuralNetwork.calculateCosts() is still not implemented properly!");
 		useCost=0;
 		constantCost=0;
 	}
 
 	protected override MC_WeightFunctionEnum getWeightFunction() {
 		return SimulationParameters.AIParameters.mc_weightFunction;
+	}
+	
+	public uint getHiddenNeuronCount()
+	{
+		return hiddenNeuronCount;
 	}
 }

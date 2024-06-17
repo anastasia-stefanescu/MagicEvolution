@@ -3,12 +3,16 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 public static class SimulationParameters {
-	
-	public static double rangeOnWhichGenerated = 300;
-	public static double initialNoWizbits = 8;
-	public static double initialNoMana = 20;
-	public static double crtNoWizbits = initialNoWizbits;
-	public static double crtNoMana = initialNoMana;
+	private static SceneTree tree = (SceneTree)Engine.GetMainLoop();
+	private static Node Global = tree.Root.GetNode("/root/Global");
+	//public static double rangeOnWhichGenerated = 200;
+	public static double rangeOnWhichGenerated = 4096;
+	//public static double initialNoWizbits = 5;
+	public static double initialNoWizbits = (int)Global.Get("wiz");
+	//public static double initialNoMana = 20;
+	public static double initialNoMana = (int)Global.Get("mana");
+	public static double crtNoWizbits = 0;
+	public static double crtNoMana = 0;
 	public static double ManaValue = 10;
 	public static class WizbitStatsParameters {
 		public static double constantCost = 0.01;
@@ -17,12 +21,18 @@ public static class SimulationParameters {
 			public static double maxHp=0.05;
 			public static double maxMana=0.05;
 			public static double maxMovementSpeed=0.05;
+			
+			//likelihood to change enviroment stat (temperature and altitude)
+			public static double envChance = 0.01;
 		}
 
 		public static class MutationParameters {
 			public static double HpMaxChange = 0.4;
 			public static double ManaMaxChange = 0.4;
 			public static double SpeedMaxChange = 0.25;
+			
+			//how much enviroment stat (temperature and altitude) can change based on current enviroment
+			public static double EnvMaxChangeMod = 0.01;
 		}
 	}
 	
