@@ -136,10 +136,10 @@ offset_left = 51.0
 offset_top = 202.0
 offset_right = 283.0
 offset_bottom = 233.0
-min_value = 1200.0
-max_value = 1800.0
+min_value = 200.0
+max_value = 1000.0
 step = 50.0
-value = 1500.0
+value = 600.0
 rounded = true
 
 [node name="BiomeMenu" type="OptionButton" parent="Main Menu/Menu"]
