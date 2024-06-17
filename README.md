@@ -91,6 +91,9 @@ Decided instead of having a hidden menu always present that we update with the r
 
 ![image](https://github.com/grig95/MagicEvolution/assets/57030918/ca67a3b0-4377-4dcb-8a75-85e190a8373b)
 
+finalgit add commit:
+https://github.com/grig95/MagicEvolution/commit/27918cbf06108d1a8d52bc6f218a8bef84817895
+
 ### Small bug, Huge Mana Sprites
 After merging branches, we found some irregularities with the mana bottle size:
 
@@ -103,5 +106,3 @@ Compared to a wizbit:
 So we played a bit with its scaling and size, and fixed it in our commit called Bug Fix(Mana).
 
 ![image](https://github.com/grig95/MagicEvolution/assets/57030918/69d7c2ac-731b-423d-936e-6ef0948c627f)
-
-
