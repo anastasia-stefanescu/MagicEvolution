@@ -32,7 +32,8 @@ The tasks we planned were:
 
 ## Diagrams
 The UML Diagrams can be found here: https://github.com/grig95/MagicEvolution/tree/master/project_structure
-![ai drawio (1)](https://github.com/grig95/MagicEvolution/assets/119175350/d2ff6c55-b1b4-4cf8-86a8-0e8afc0d548f)
+![ai (4) drawio](https://github.com/grig95/MagicEvolution/assets/119175350/566da6fd-89b0-4616-b2c8-101df0e9dcc1)
+
 ![dependinte drawio](https://github.com/grig95/MagicEvolution/assets/119175350/4e38bb74-1c33-478f-8b38-86053a6428f0)
 
 
