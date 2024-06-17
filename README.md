@@ -47,7 +47,8 @@ The UML Diagrams can be found here: https://github.com/grig95/MagicEvolution/tre
 Those can be found in the scripts files, namely in the folders for:
 
  - Wizbit (https://github.com/grig95/MagicEvolution/blob/WizbittAdaptation/scripts/Wizbit/Wizbit.cs)
- - NeuralNetwork ((https://github.com/grig95/MagicEvolution/tree/WizbittAdaptation/scripts/AI/NeuralNetwork)) 
+ - NeuralNetwork ((https://github.com/grig95/MagicEvolution/tree/WizbittAdaptation/scripts/AI/NeuralNetwork))
+ - WorldGenerator (https://github.com/grig95/MagicEvolution/blob/master/scripts/WorldGeneration/WorldGenerator.cs)
 
 ## Design Patterns
 We've used a **Factory** Design Pattern to create the Genomes:
