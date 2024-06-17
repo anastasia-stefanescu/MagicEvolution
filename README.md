@@ -75,3 +75,33 @@ We used AI to help us do the Unit Testing, we asked ChatGPT:
 ![gpt](https://github.com/grig95/MagicEvolution/assets/119175350/f576a4f5-4d96-40e9-a963-1c4934ad742a)
 
 And of course, for various other little things :)
+
+## Bugfixes
+### Wizbit Stats Menu
+In our project, we have a menu for wizbit stats that prompts up whenever we press a wizbit. Sounds good, right?
+Except when the window just appears, isn't updated and can't be closed, like here:
+
+![image](https://github.com/grig95/MagicEvolution/assets/57030918/5455a88e-06a8-4b19-97da-46697b647da0)
+
+Issue:
+Wrong approach for the menu design.
+
+Solution:
+Decided instead of having a hidden menu always present that we update with the right data, we shall have one that can be closed and is instantiated whenever we click a wizbit with his data.
+
+![image](https://github.com/grig95/MagicEvolution/assets/57030918/ca67a3b0-4377-4dcb-8a75-85e190a8373b)
+
+### Small bug, Huge Mana Sprites
+After merging branches, we found some irregularities with the mana bottle size:
+
+![image](https://github.com/grig95/MagicEvolution/assets/57030918/2769fded-9f4d-40d0-9831-303f291af28a)
+
+Compared to a wizbit:
+
+![image](https://github.com/grig95/MagicEvolution/assets/57030918/9663dc64-2015-4973-9a94-54d036874ced)
+
+So we played a bit with its scaling and size, and fixed it in our commit called Bug Fix(Mana).
+
+![image](https://github.com/grig95/MagicEvolution/assets/57030918/69d7c2ac-731b-423d-936e-6ef0948c627f)
+
+
