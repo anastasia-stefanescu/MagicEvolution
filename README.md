@@ -1,5 +1,7 @@
 # Magic Evolution
 
+**LINK DEMO:** https://youtu.be/zK_ddzEXcII 
+
 A game written using **C#** in **Godot** that creates a simulation that **can be observed, but not modified**, of **a world inhabited by Wizbits** - small magic creatures that are supposed to evolve by reproducing themselves.
 
 The purpose is to observe **their evolution accross multiple generations**, how the Wizbits that are better adapted to their surroundings survive for longer and reproduce more, leading to better offspring.
